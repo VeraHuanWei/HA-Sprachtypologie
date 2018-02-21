@@ -1,0 +1,23 @@
+---
+title: "Wortfolgen"
+output: html_notebook
+---
+
+
+```{r}
+Karte <- read.table("//Users/verawei/Documents/HA Sprachtypologie/sources/Karte.txt", sep = "\t", quote = "", header = TRUE)
+```
+
+```{r}
+library(maps)
+map("world", interior=FALSE, col="grey", resolution=0)
+points(Karte$Longitude,Karte$Latitude)
+```
+
+```{r}
+
+
+```
+
+
+
