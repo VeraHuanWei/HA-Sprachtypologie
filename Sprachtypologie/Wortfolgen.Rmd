@@ -1,18 +1,67 @@
 ---
-title: "Wortfolgen"
-output: html_notebook
+title: "Zusammenhang zwischen den Wortfolgen und den  Wortstellungen in Nominalphrasen der Sprachen"
+author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+  html_notebook: 
+    toc: yes
 ---
+
+#1. Einleitung
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ```{r}
-Karte <- read.table("//Users/verawei/Documents/HA Sprachtypologie/sources/Karte.txt", sep = "\t", quote = "", header = TRUE)
+Karte <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Karte.csv"
+                    , header = TRUE
+                   , sep = ";")
 ```
+
+
+```{r}
+summary(Karte)
+```
+
 
 ```{r}
 library(maps)
 map("world", interior=FALSE, col="grey", resolution=0)
-points(Karte$Longitude,Karte$Latitude)
+
+points(Karte$Longitude, Karte$Latitude
+       , col = "red"
+       , cex =.7
+       , pch = 20)
+
+title (main = "Übersicht der gehobenen Sprachen ")
 ```
+
+
+
+
+
+
+
+
 
 ```{r}
 
