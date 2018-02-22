@@ -1,14 +1,15 @@
 # HA-Sprachtypologie
-- Huan Wei, MA Linguistik: Kognition und Komunikation
+**Huan Wei, MA Linguistik: Kognition und Komunikation**
 
 Dieses Repository ist eine empirische Arbeit im Rahmen des Seminars "Einführung in die Sprachtypologie" bei Prof. Dr. Michael Cysouw an der Universität Marburg. 
 
-**Inhalten**
--	Daten von Übersetzungsbogen (Ordner Umfrage)
+#Inhalten
+-	Daten von Übersetzungsbogen (Ordner: Umfrage)
 -	Sortieren die gehobenen Daten (Ordner: sources)
 -	Analysieren und Interpretieren die Daten in R (Ordner: Sprachtypologie)
 
 #Ideen und Hintergrund
+
 Um den Zusammenhang zwischen der Wortfolge im Satz und Nominalphrase in der Sprache herauszufinden, habe ich einen Fragebogen mit 10-deutschen Sätzen an Informanten mit verschiedene Muttersprachen gegeben. Von Januar bis Ende Februar 2018 habe ich insgesamt 26 Fragebogen von Informanten zurückbekommen. 
 
 Die gehobenen Sprachen sind Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
