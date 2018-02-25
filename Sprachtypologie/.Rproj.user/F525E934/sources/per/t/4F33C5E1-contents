@@ -52,7 +52,7 @@ points(Karte$Longitude, Karte$Latitude
        , cex =.7
        , pch = 20)
 
-title (main = "Übersicht der gehobenen Sprachen ")
+title (main = "Übersicht der erhobenen Sprachen ")
 ```
 
 
