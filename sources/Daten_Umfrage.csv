@@ -1,0 +1,27 @@
+﻿Sprache;Land;Latitude;Longitude;Wortfolge;Adjektiv+Nomen;Musik+Mozart;Artikel+Nomen;Farbe+Nomen;Numeral+Nomen;Artikel+Farbe;Artikel+Numeral;Artikel+Adjektiv;Farbe+Adjektiv;Adjektiv+Adjektiv-Umfang
+Deutsch;Deutschland;52.00;10.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Englisch;England;52.00;0.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Niederländisch;Niederland;52.50;6.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Französisch;Frankreich;48.00;2.00;SVO;Beides;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Italienisch;Italien;43.00;12.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Griechisch;Griechland;39.00;22.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Portugiesisch;Portugal;39.00;-8.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Fa+Adj;Adj-U+Adj
+Polnisch;Poland;52.00;20.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;NA;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Russisch;Russland;56.00;38.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Ukrainisch;Ukraine;49.00;33.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;NA;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Rumänisch;Romänien;46.00;25.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Fa+Adj;Adj-U+Adj
+Armenisch;Iran;32.67;51.67;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;NA;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Türkisch;Türkey;39.00;35.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Tigrinya;Ethiopia Eritrea;14.50;38.50;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Chinesisch;China;35.00;115.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Kantonesisch;China;23.00;113.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Japanisch;Japan;37.00;140.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;NA;DET+Num;DET+Adj;Fa+Adj;Adj+Adj-U
+Koreanisch;Süd Korea;37.50;128.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;NA;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Hindi;Indien;25.00;77.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;NA
+Vietnamesisch;Vietnam;10.50;106.50;SVO;N+Adj;MuMo;N+DET;N+Fa;Num+N;DET+Fa;Num+DET;Adj+DET;Adj+Fa;Adj+Adj-U
+Indonesisch;Indonesia;0.00;106.00;SVO;Beides;MuMo;N+DET;N+Fa;Num+N;DET+Fa;Num+DET;Adj+DET;Fa+Adj;Adj-U+Adj
+Kroatisch;Kroatien;44.00;19.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;Num+DET;DET+Adj;Adj+Fa;Adj+Adj-U
+Georgisch;Georgien;42.00;44.00;SVO;Adj+N;NA;DET+N;Fa+N;Num+N;Fa+DET;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Berber;Morocco;33.33;-4.67;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;NA;Num+DET;NA;Fa+Adj;Adj+Adj-U
+Persisch;Iran;32.00;54.00;SOV;N+Adj;NA;NA;N+Fa;Num+N;NA;NA;NA;Fa+Adj;NA
+Spanisch;Mexiko;19.21;-99.38;SVO;N+Adj;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
