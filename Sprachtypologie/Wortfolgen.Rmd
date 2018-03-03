@@ -49,6 +49,7 @@ summary(Karte)
 ```
 
 - Bild 1: Übersicht der erhobenen Sprachen
+
 ```{r}
 library(maps)
 map("world", interior=FALSE, col="grey", resolution=0)
@@ -60,6 +61,9 @@ points(Karte$Longitude, Karte$Latitude
 
 title (main = "Übersicht der erhobenen Sprachen ")
 ```
+
+
+
 
 ##2.2 Übersetzungssätzen
 
@@ -100,7 +104,7 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 #3. Ergebnisse der Umfrage
 
-##3.1 Gesamte Daten in R Einlesen 
+##3.1 Einlesen der gesamten Ergebnisse der Umfrage 
 
 ```{r}
 Umfragesdaten <- read.csv("../sources/Daten_Umfrage.csv"
@@ -121,7 +125,7 @@ summary(Umfragesdaten)
 
 
 
-##3.2 Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
+##3.2 Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
 ```{r}
 maps::map("world"
@@ -141,7 +145,7 @@ points(Umfragesdaten$Longitude, Umfragesdaten$Latitude
        , pch = Wortfolge
        , col = mycols)
 
-title(main = "Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen")
+title(main = "Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen")
 
 legend ("bottomleft"
         , legend = myname
@@ -151,14 +155,18 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
+Nicht nur auf Satz 1 "Ich koche Suppe" sondern auch alle andere Sätze berücksichtigt. 
 
 
 
 
 
+##3.3 Die Wortstellungen in Nominalphrasen der erhobenen Sprachen
 
 
-##3.3 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase der erhobenen Sprachen
+
+
+### 3.3.1 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
 ```{r}
 maps::map("world"
@@ -172,7 +180,7 @@ mycols1 <- cols[Umfragesdaten$Adjektiv.Nomen]
 mysymbols <- c(20, 20, 20)
 AdjNon <- mysymbols[Umfragesdaten$Adjektiv.Nomen]
 
-myname <- c("Adj+N", "Beides", "N+Adj")
+myname <- c("Adjektiv vor Nomen", "Beides", "Nomen vor Adjektiv")
 
 points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
        , pch = AdjNon
@@ -188,12 +196,12 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
+Alle berücksichtige Nominalphrase: 
 
 
 
 
-
-##3.4 Die Reihenfolge von Artikel und Nomen in Nominalphrase der erhobenen Sprachen
+### 3.3.2 Die Reihenfolge von Artikel und Nomen in Nominalphrase
 
 ```{r}
 maps::map("world"
@@ -207,7 +215,7 @@ mycols2 <- cols[Umfragesdaten$Artikel.Nomen]
 mysymbols <- c(20, 20, 20)
 ArtNon <- mysymbols[Umfragesdaten$Artikel.Nomen]
 
-myname <- c("DET+N", "N+DET", "NA")
+myname <- c("Artikel vor Nomen", "Nomen vor Artikel", "Nicht Klar")
 
 points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
        , pch = ArtNon
@@ -223,15 +231,20 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
+Alle berücksichtige Nominalphrase:
+
+
+
 ???
 NA zeigt hier in der Karte nicht... Persisch
 ???
 
+Warum nicht klar? nicht eingegeben? nicht vorkommen? etc.
 
 
 
 
-##3.5 Die Reihenfolge von Farbe und Nomen in Nominalphrase der erhobenen Sprachen
+### 3.3.3 Die Reihenfolge von Farbe und Nomen in Nominalphrase "roter Ball"
 
 ```{r}
 maps::map("world"
@@ -245,13 +258,13 @@ mycols3 <- cols[Umfragesdaten$Farbe.Nomen]
 mysymbols <- c(20, 20)
 FarbNon <- mysymbols[Umfragesdaten$Farbe.Nomen]
 
-myname <- c("Farbe+N", "N+Farbe")
+myname <- c("Farbe vor Nomen", "Nomen vor Farbe")
 
 points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
        , pch = FarbNon
        , col = mycols3)
 
-title(main = "Die Reihenfolge von Farbe und Nomen in Nominalphrase")
+title(main = "Die Reihenfolge von Farbe und Nomen in Nominalphrase: roter Ball")
 
 legend ("bottomleft"
         , legend = myname
@@ -269,6 +282,271 @@ legend ("bottomleft"
 
 
 
+### 3.3.4 Die Reihenfolge von Numeral und Nomen in Nominalphrase "fünf Häuser"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red")
+mycols4 <- cols[Umfragesdaten$Numeral.Nomen]
+
+mysymbols <- c(20)
+NumNon <- mysymbols[Umfragesdaten$Numeral.Nomen]
+
+myname <- c("Numeral vor Nomen", "Nomen vor Numeral")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = NumNon
+       , col = mycols4)
+
+title(main = "Die Reihenfolge von Numeral und Nomen 
+in Nominalphrase: fünf Häuser")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = NumNon
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+In allen erhobenen Sprachen sind Numeral vor Nomen in Nominalphrase "fünf Häuser", hier gibt es keine Ausnahme.
+
+
+
+
+
+### 3.3.5 Die Wortfolge von Genitiv und Nomen in Nominalphrase "Musik von Mozart"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("red", "blue", "grey30")
+mycols5 <- cols[Umfragesdaten$Musik.Mozart]
+
+mysymbols <- c(20, 20, 20)
+MuMo <- mysymbols[Umfragesdaten$Musik.Mozart]
+
+myname <- c("Genitiv vor Nomen", "Nomen vor Genitiv", "Nicht klar")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = MuMo
+       , col = mycols5)
+
+title(main = "Die Wortfolge von Genitiv und Nomen
+in Nominalphrase: Musik von Mozart")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = MuMo
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
+##3.4 Die Reihenfolge von verschiedenen Arten der Adjektiven in Nominalphrase
+
+
+
+### 3.4.1 Die Reihenfolge von Artikel und Farbe in Nominalphrase "einen roten Ball"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red", "grey30")
+mycols6 <- cols[Umfragesdaten$Artikel.Farbe]
+
+mysymbols <- c(20, 20, 20)
+ArtFa <- mysymbols[Umfragesdaten$Artikel.Farbe]
+
+myname <- c("Artikel vor Farbe", "Farbe vor Artikel", "Nicht klar")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = ArtFa
+       , col = mycols6)
+
+title(main = "Die Reihenfolge von Artikel und Farbe 
+in Nominalphrase: einen roten Ball")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = ArtFa
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
+
+### 3.4.2 Die Reihenfolge von Artikel und Numeral in Nominalphrase "diese fünf Häuser"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red", "grey30")
+mycols7 <- cols[Umfragesdaten$Artikel.Numeral]
+
+mysymbols <- c(20, 20, 20)
+ArtNum <- mysymbols[Umfragesdaten$Artikel.Numeral]
+
+myname <- c("Artikel vor Numeral", "Numeral vor Artikel", "Nicht klar")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = ArtNum
+       , col = mycols7)
+
+title(main = "Die Reihenfolge von Artikel und Numeral
+in Nominalphrase: diese fünf Häuser")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = ArtNum
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
+
+
+
+### 3.4.3 Die Reihenfolge von Artikel und Adjektiv in Nominalphrase "das feuchte Holz"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red", "grey30")
+mycols8 <- cols[Umfragesdaten$Artikel.Adjektiv]
+
+mysymbols <- c(20, 20, 20)
+ArtAdj <- mysymbols[Umfragesdaten$Artikel.Adjektiv]
+
+myname <- c("Artikel vor Adjektiv", "Adjektiv vor Artikel", "Nicht klar")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = ArtAdj
+       , col = mycols8)
+
+title(main = "Die Reihenfolge von Artikel und Adjektiv 
+in Nominalphrase: das feuchte Holz")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = ArtAdj
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
+
+
+### 3.4.4 Die Reihenfolge von Farbe und Adjektiv in Nominalphrase "schönen roten Ball"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red")
+mycols9 <- cols[Umfragesdaten$Farbe.Adjektiv]
+
+mysymbols <- c(20, 20)
+FaAdj <- mysymbols[Umfragesdaten$Farbe.Adjektiv]
+
+myname <- c("Adjektiv vor Farbe", "Farbe vor Adjektiv")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = FaAdj
+       , col = mycols9)
+
+title(main = "Die Reihenfolge von Adjektiv und Farbe 
+in Nominalphrase: schönen roten Ball")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = FaAdj
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+### 3.4.5 Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase "schönen großen Ball"
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red", "grey30")
+mycols10 <- cols[Umfragesdaten$Adjektiv.Adjektiv.Umfang]
+
+mysymbols <- c(20, 20, 20)
+AdjAdjU <- mysymbols[Umfragesdaten$Adjektiv.Adjektiv.Umfang]
+
+myname <- c("Umfangsadjektiv vor Adjektiv", "Adjektiv vor Umfangsadjektiv", "Nicht klar")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = AdjAdjU
+       , col = mycols10)
+
+title(main = "Die Reihenfolge von Adjektiv und Umfangsadjektiv 
+in Nominalphrase: schönen großen Ball")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = AdjAdjU
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
 ```{r}
 
 ```
@@ -290,7 +568,16 @@ legend ("bottomleft"
 
 
 
-#4. Diskussion der Ergebnisse
+#4. Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen  der erhobenen Sprachen
+
+
+**Vermutungen**
+
+
+
+##4.1 Zusammenhang zwischen den Wortfolgen und den Wortstellung der Adjektiv und Nomen
+
+
 
 
 ```{r}
