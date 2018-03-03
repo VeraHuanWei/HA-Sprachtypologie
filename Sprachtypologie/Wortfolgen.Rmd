@@ -3,29 +3,27 @@ title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphr
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: yes
-  html_notebook:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
+  html_notebook:
+    toc: yes
+  pdf_document:
+    toc: yes
 ---
 
 #1. Einleitung
 
 
 
-#2. Darstellung des Forschungsgegenstands
 
 
 
-
-#3. Eigene Untersuchung
+#2. Eigene Untersuchung
 
 Um den Zusammenhang zwischen der Wortfolge im Satz und Nominalphrase in der Sprache herauszufinden, wurde einen Fragebogen mit 10-deutschen Sätzen an Informanten mit verschiedene Muttersprachen gegeben. Von Januar bis Ende Februar 2018 habe ich insgesamt 26 Fragebogen von Informanten zurückbekommen. 
 
-##3.1 Überlegungen zur Wahl der Personen und Sprachen
+##2.1 Überlegungen zur Wahl der Informanten und Sprachen
 
 Die Überlegungen zur Wahl der Personen war klar, dass wir nur die Muttersprachler suchen, statt Lehrbücher oder Wörterbuch lesen, um den Übersetzungsbögen ins anderen Sprachen zu übersetzen. Natürlich ist es viel besser, wenn man die Sprachen von der ganzen Welt bekommen und am besten auch ein paar isolierte Sprache oder die Sprache mit wenige Sprecher. 
 
@@ -63,7 +61,7 @@ points(Karte$Longitude, Karte$Latitude
 title (main = "Übersicht der erhobenen Sprachen ")
 ```
 
-##3.2 Übersetzungssätzen
+##2.2 Übersetzungssätzen
 
 Dieser Übersetzungsbogen wurde von mir und zwei weiteren Studentinnen zusammengestellt.
 Mit diesem Übersetzungsbogen möchten wir herausfinden, wie bestimmte Sätze in verschiedene Sprachen aufgebaut sind, wie Superlativ und Modalpartikeln. Ich interessiere mich sehr über den Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen von Sprachen der Welt.
@@ -81,16 +79,16 @@ Daher enthält der Übersetzungsbogen folgende Zehn Sätze:
 10. Das feuchte Holz verbrennt am schlechtesten. 
 
 Für mein Analysieren sind nur folgende Satzteilen relevant: 
--	1. Ich koche Suppe. [Subjekt + Verb + Objekt]
--	3. Musik von Mozart [ Nomen + Nomen]
--	4. diese fünf großen Häuser [DET + Num + Adj-Umfang + N]
+- 1. Ich koche Suppe. [Subjekt + Verb + Objekt]
+- 3. Musik von Mozart [ Nomen + Nomen]
+- 4. diese fünf großen Häuser [DET + Num + Adj-Umfang + N]
 -	5. einen schönen großen roten Ball [ ART + Adj + Adj-Umfang + Farbe + N]
 -	9. kleine Hunde [Adj + N]
 -	10. das feuchte Holz [DET + Adj + N]
 
 Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Leider gibt es viele Sprachen, wenn der Subjekt im Satz "ich" ist, fällt den Subjekt weg und wird mit der Endung von Verb markiert. Daher habe ich die Wortfolgen von der Sprache immer auf alle gefragte zehn Sätzen berücksichtigt. "Musik von Mozart" sind zwei Nomen, daher analysiere ich nur die Rheinfolge von "Musik" und "Mozart". 
 
-##3.3 Methode und Ablauf
+##2.3 Methode und Ablauf
 
 
 
@@ -100,13 +98,193 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 
 
-##3.4 Ergebnisse
+#3. Ergebnisse der Umfrage
+
+##3.1 Gesamte Daten in R Einlesen 
+
+```{r}
+Umfragesdaten <- read.csv("../sources/Daten_Umfrage.csv"
+                          , header = TRUE
+                          , sep = ";"
+                          , quote = ""
+                          )
+
+```
+
+```{r}
+summary(Umfragesdaten)
+```
+
+
+
+
+
+
+
+##3.2 Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("blue", "red")
+mycols <- cols[Umfragesdaten$Wortfolge]
+
+mysymbols <- c(20, 20)
+Wortfolge <- mysymbols[Umfragesdaten$Wortfolge]
+
+myname <- c("SOV-Sprache", "SVO-Sprache")
+
+points(Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = Wortfolge
+       , col = mycols)
+
+title(main = "Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = Wortfolge
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
+
+##3.3 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase der erhobenen Sprachen
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("red", "green", "blue")
+mycols1 <- cols[Umfragesdaten$Adjektiv.Nomen]
+
+mysymbols <- c(20, 20, 20)
+AdjNon <- mysymbols[Umfragesdaten$Adjektiv.Nomen]
+
+myname <- c("Adj+N", "Beides", "N+Adj")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = AdjNon
+       , col = mycols1)
+
+title(main = "Die Reihenfolge von Adjektiv und Nomen in Nominalphrase")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = AdjNon
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+##3.4 Die Reihenfolge von Artikel und Nomen in Nominalphrase der erhobenen Sprachen
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("red", "blue", "grey30")
+mycols2 <- cols[Umfragesdaten$Artikel.Nomen]
+
+mysymbols <- c(20, 20, 20)
+ArtNon <- mysymbols[Umfragesdaten$Artikel.Nomen]
+
+myname <- c("DET+N", "N+DET", "NA")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = ArtNon
+       , col = mycols2)
+
+title(main = "Die Reihenfolge von Artikel und Nomen in Nominalphrase")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = ArtNon
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+???
+NA zeigt hier in der Karte nicht... Persisch
+???
+
+
+
+
+
+##3.5 Die Reihenfolge von Farbe und Nomen in Nominalphrase der erhobenen Sprachen
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("red", "blue")
+mycols3 <- cols[Umfragesdaten$Farbe.Nomen]
+
+mysymbols <- c(20, 20)
+FarbNon <- mysymbols[Umfragesdaten$Farbe.Nomen]
+
+myname <- c("Farbe+N", "N+Farbe")
+
+points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+       , pch = FarbNon
+       , col = mycols3)
+
+title(main = "Die Reihenfolge von Farbe und Nomen in Nominalphrase")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = FarbNon
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+
+
+
+
+
+
 
 
 ```{r}
 
+```
+
+
+
+
+
+
+
+
+```{r}
 
 ```
+
+
 
 
 
@@ -115,8 +293,18 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 #4. Diskussion der Ergebnisse
 
 
+```{r}
+
+```
 
 
+
+
+```{r}
+
+```
+
+ 
 
 
 
@@ -124,9 +312,12 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 
 
-
 Kritik
 In vielen Sprachen sind die Bedeutung von jedem Wort nicht klar markiert oder geschrieben, wie Persisch, Koreanisch. Man kann nur mit Wörterbuch und Google Übersetzer die Bedeutung vom einzelnen Wort raussuchen, aber meistens ist man unsicher.  Daher kann man nur die Art von Wort feststellen, nicht die genaue Bedeutung und Feinheit. 
+
+
+Satz 1: Ich koche Suppe.
+In Vielen Sprachen wird der Subjekt nicht eingegeben, wenn es "ich" ist. "Ich" als Subjekt wird in der Endung von Verb makiert. 
 
 
 
