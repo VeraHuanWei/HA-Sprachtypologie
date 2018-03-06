@@ -14,9 +14,9 @@ output:
 
 #1. Einleitung
 
+Sprache der Welt & Sprachtypologie
 
-
-
+Idee fürs Umfrage etc.
 
 
 #2. Eigene Untersuchung
@@ -29,14 +29,9 @@ Die Überlegungen zur Wahl der Personen war klar, dass wir nur die Muttersprachl
 
 Die insgesamt erhobene 26 Sprachen sind: Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
 
-Diese erhobenen Sprachen sind gut auf den Sprachfamilien geteilt, nicht nur Indoeuropäische Sprachen (Deutsch, Englisch, …), Isolierte Sprachen wie Koreanisch, Japanisch, sondern auch die Tai-Kadai-Sprachen wie Hindi, Vietnamesisch und Indonesisch. Außerdem sind die Sprachen wie Berber, Tigrinja auch dabei. 
+Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt nicht nur Indoeuropäische Sprachen wie Deutsch, Englisch, Niederländisch, Französisch, Spanisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Hindi, Kroatisch und Persisch, sondern auch die isolierten Sprachen wie Koreanisch, Japanisch und Chinesisch. Außerdem sind die Altaische Sprachen wie Türkisch, Afroasiatische Sprachen wie Tigrinja und Berber, Sinotibetische Sprachen wie Kantonesisch, Austroasiatische Sprache wie Vietnamesisch, Austronesisch wie Indonesisch und Südkaukasische Sprachen wie Georgisch. (vgl. Wals.info)
 
-
-
-
-
-
-Im Folgenden werden die Daten von Sprachen in "R" einlesen und schließlich eine Karte für eine Übersicht der erhobenen Sprachen mit diesen Daten dargestellt. 
+Im Folgenden werden die Daten von den erhobenen Sprachen in "R" eingelesen und schließlich wird eine Karte für eine Übersicht der erhobenen Sprachen mit diesen Daten dargestellt. 
 
 ```{r}
 Karte <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Karte.csv"
@@ -48,7 +43,9 @@ Karte <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Karte.csv
 summary(Karte)
 ```
 
-- Bild 1: Übersicht der erhobenen Sprachen
+Im Bild 1 werden alle erhobenen Sprachen nach ihrer Räumlichkeit auf der Weltkarte dargestellt. Mit diesem Bild sieht man, dass die erhobene Sprachen gut auf der ganzen Welt geteilt sind. Die meisten Sprachen sind von Europa, aber asiatische und afrikanische Sprachen sind auch dabei.   
+
+#### Bild 1: Übersicht der erhobenen Sprachen
 
 ```{r}
 library(maps)
@@ -61,6 +58,50 @@ points(Karte$Longitude, Karte$Latitude
 
 title (main = "Übersicht der erhobenen Sprachen ")
 ```
+
+```{r}
+Umfrage <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Umfrage.csv"
+                    , header = TRUE
+                    , sep = ";")
+```
+
+```{r}
+summary(Umfrage)
+```
+
+In Folgenden Bild 2 werden diese erhobenen Sprachen nach der Sprachfamilie dargestellt. Mit dieser Darstellung kann man einen besseren Überblick über die zusammengehörige Sprachfamilie. Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt 16 Indoeuropäische Sprachen und zwei Afroasiatische Sprachen. Außerdem sind die Sprachfamilie Südkaukasische Sprachen, Altaische Sprachen, Austroasiatische Sprachen, Austronesische Sprache, Sinotibetische Sprachen, Chinesisch, Japanisch und Koreanisch auch dabei. Darüber hinaus kann man sagen, dass die erhobenen 26 Sprachen sehr vielfältig sind.    
+
+#### Bild 2: Übersicht der erhobenen Sprachen nach der Sprachfamilie
+
+```{r}
+maps::map("world"
+          ,interior = FALSE
+          , col = "grey"
+          , resolution = 0)
+
+cols <- c("red", "darkgreen", "green3", "blue","purple","darkorchid1", "deepskyblue2", "darkblue", "yellowgreen", "gold")
+mycols <- cols[Umfrage$Familie]
+
+mysymbols <- c(20, 20, 20, 20, 20, 20, 20, 20, 20, 20)
+Sprachefamilie <- mysymbols[Umfrage$Familie]
+
+myname <- c("Indoeuropäisch", "Afroasiatisch", "Südkaukasisch", "Altaisch", "Chinesisch", "Sinotibetisch", "Japanisch", "Koreanisch", "Austroasiatisch", "Austronesisch")
+
+points(Umfrage$Longitude, Umfrage$Latitude
+       , pch = Sprachefamilie
+       , col = mycols)
+
+title(main = "Übersicht der erhobenen Sprachen nach der Sprachfamilie")
+
+legend ("bottomleft"
+        , legend = myname
+        , pch = Wortfolge
+        , col = cols
+        , cex = 0.7
+        , pt.cex = 1.5)
+```
+
+Die Auswahl von Farben sind schwirige. 
 
 
 
@@ -121,11 +162,10 @@ summary(Umfragesdaten)
 
 
 
-
-
-
-
 ##3.2 Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
+
+
+#### Bild 3: Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
 ```{r}
 maps::map("world"
@@ -168,6 +208,9 @@ Nicht nur auf Satz 1 "Ich koche Suppe" sondern auch alle andere Sätze berücksi
 
 ### 3.3.1 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
+
+#### Bild 4: Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -202,6 +245,9 @@ Alle berücksichtige Nominalphrase:
 
 
 ### 3.3.2 Die Reihenfolge von Artikel und Nomen in Nominalphrase
+
+
+#### Bild 5: Die Reihenfolge von Artikel und Nomen in Nominalphrase
 
 ```{r}
 maps::map("world"
@@ -246,6 +292,9 @@ Warum nicht klar? nicht eingegeben? nicht vorkommen? etc.
 
 ### 3.3.3 Die Reihenfolge von Farbe und Nomen in Nominalphrase "roter Ball"
 
+
+#### Bild 6: Die Reihenfolge von Farbe und Nomen in Nominalphrase: roter Ball
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -284,6 +333,9 @@ legend ("bottomleft"
 
 ### 3.3.4 Die Reihenfolge von Numeral und Nomen in Nominalphrase "fünf Häuser"
 
+
+#### Bild 7: Die Reihenfolge von Numeral und Nomen in Nominalphrase: fünf Häuser
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -320,6 +372,8 @@ In allen erhobenen Sprachen sind Numeral vor Nomen in Nominalphrase "fünf Häus
 
 
 ### 3.3.5 Die Wortfolge von Genitiv und Nomen in Nominalphrase "Musik von Mozart"
+
+#### Bild 8: Die Wortfolge von Genitiv und Nomen in Nominalphrase: Musik von Mozart
 
 ```{r}
 maps::map("world"
@@ -362,6 +416,8 @@ legend ("bottomleft"
 
 ### 3.4.1 Die Reihenfolge von Artikel und Farbe in Nominalphrase "einen roten Ball"
 
+#### Bild 9: Die Reihenfolge von Artikel und Farbe in Nominalphrase: einen roten Ball
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -399,6 +455,9 @@ legend ("bottomleft"
 
 
 ### 3.4.2 Die Reihenfolge von Artikel und Numeral in Nominalphrase "diese fünf Häuser"
+
+
+#### Bild 10: Die Reihenfolge von Artikel und Numeral in Nominalphrase: diese fünf Häuser
 
 ```{r}
 maps::map("world"
@@ -440,6 +499,9 @@ legend ("bottomleft"
 
 ### 3.4.3 Die Reihenfolge von Artikel und Adjektiv in Nominalphrase "das feuchte Holz"
 
+
+#### Bild 11: Die Reihenfolge von Artikel und Adjektiv in Nominalphrase: das feuchte Holz
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -479,6 +541,10 @@ legend ("bottomleft"
 
 ### 3.4.4 Die Reihenfolge von Farbe und Adjektiv in Nominalphrase "schönen roten Ball"
 
+
+
+#### Bild 12: Die Reihenfolge von Adjektiv und Farbe in Nominalphrase: schönen roten Ball
+
 ```{r}
 maps::map("world"
           ,interior = FALSE
@@ -514,6 +580,9 @@ legend ("bottomleft"
 
 
 ### 3.4.5 Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase "schönen großen Ball"
+
+
+#### Bild 13: Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase: schönen großen Ball
 
 ```{r}
 maps::map("world"

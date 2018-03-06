@@ -1,0 +1,27 @@
+﻿Sprache;Land;Gattung;Familie;Latitude;Longitude;Wortfolge;Adjektiv+Nomen;Musik+Mozart;Artikel+Nomen;Farbe+Nomen;Numeral+Nomen;Artikel+Farbe;Artikel+Numeral;Artikel+Adjektiv;Farbe+Adjektiv;Adjektiv+Adjektiv-Umfang
+Deutsch;Deutschland;Germanic;1 Indo-European;52.00;10.00;1 SVO;1 1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Englisch;England;Germanic;1 Indo-European;52.00;0.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Niederländisch;Niederland;Germanic;1 Indo-European;52.50;6.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Französisch;Frankreich;Romance;1 Indo-European;48.00;2.00;1 SVO;3 No dominant order;1 MuMo;1 DET+N;2 N+Fa;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Italienisch;Italien;Romance;1 Indo-European;43.00;12.00;1 SVO;2 N+Adj;1 MuMo;1 DET+N;2 N+Fa;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Griechisch;Griechland;Greek;1 Indo-European;39.00;22.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Portugiesisch;Portugal;Romance;1 Indo-European;39.00;-8.00;1 SVO;2 N+Adj;1 MuMo;1 DET+N;2 N+Fa;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;2 Fa+Adj;2 Adj-U+Adj
+Polnisch;Poland;Slavic;1 Indo-European;52.00;20.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;NA;1 DET+Num;1 DET+Adj;1 Adj+Fa;2 Adj-U+Adj
+Russisch;Russland;Slavic;1 Indo-European;56.00;38.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;2 Adj-U+Adj
+Ukrainisch;Ukraine;Slavic;1 Indo-European;49.00;33.00;1 SVO;1 Adj+N;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;NA;1 DET+Num;1 DET+Adj;1 Adj+Fa;2 Adj-U+Adj
+Rumänisch;Romänien;Romance;1 Indo-European;46.00;25.00;1 SVO;2 N+Adj;1 MuMo;1 DET+N;2 N+Fa;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;2 Fa+Adj;2 Adj-U+Adj
+Armenisch;Iran;Armenian;1 Indo-European;32.67;51.67;1 SVO;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;NA;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Türkisch;Türkey;Turkic;2 Altaic;39.00;35.00;2 SOV;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Tigrinya;Ethiopia Eritrea;Semitic;3 Afro-Asiatic;14.50;38.50;2 SOV;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Chinesisch;China;Sign Lagnguages;4 Chinesisch;35.00;115.00;1 SVO;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Kantonesisch;China;Chinese;5 Sino-Tibetan;23.00;113.00;1 SVO;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;2 Adj-U+Adj
+Japanisch;Japan;Japanese;6 Japanese;37.00;140.00;2 SOV;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;NA;1 DET+Num;1 DET+Adj;2 Fa+Adj;1 Adj+Adj-U
+Koreanisch;Süd Korea;Korean;7 Korean;37.50;128.00;2 SOV;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;NA;1 DET+Num;1 DET+Adj;1 Adj+Fa;2 Adj-U+Adj
+Hindi;Indien;Indic;1 Indo-European;25.00;77.00;2 SOV;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;NA
+Vietnamesisch;Vietnam;Viet-Muong;8 Austro-Asiatic;10.50;106.50;1 SVO;2 N+Adj;1 MuMo;2 N+DET;2 N+Fa;1 Num+N;1 DET+Fa;2 Num+DET;2 Adj+DET;1 Adj+Fa;1 Adj+Adj-U
+Indonesisch;Indonesia;Malayo-Sumbawan;9 Austronesian;0.00;106.00;1 SVO;3 No dominant order;1 MuMo;2 N+DET;2 N+Fa;1 Num+N;1 DET+Fa;2 Num+DET;2 Adj+DET;2 Fa+Adj;2 Adj-U+Adj
+Kroatisch;Kroatien;Slavic;1 Indo-European;44.00;19.00;1 SVO;1 Adj+N;2 MoMu;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;2 Num+DET;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Georgisch;Georgien;Kartvelian;10 Kartvelian;42.00;44.00;1 SVO;1 Adj+N;NA;1 DET+N;1 Fa+N;1 Num+N;2 Fa+DET;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
+Berber;Morocco;Berber;3 Afro-Asiatic;33.33;-4.67;1 SVO;2 N+Adj;1 MuMo;1 DET+N;2 N+Fa;1 Num+N;NA;2 Num+DET;NA;2 Fa+Adj;1 Adj+Adj-U
+Persisch;Iran;Iranian;1 Indo-European;32.00;54.00;2 SOV;2 N+Adj;NA;NA;2 N+Fa;1 Num+N;NA;NA;NA;2 Fa+Adj;NA
+Spanisch;Mexiko;Romance;1 Indo-European;19.21;-99.38;1 SVO;2 N+Adj;1 MuMo;1 DET+N;1 Fa+N;1 Num+N;1 DET+Fa;1 DET+Num;1 DET+Adj;1 Adj+Fa;1 Adj+Adj-U
