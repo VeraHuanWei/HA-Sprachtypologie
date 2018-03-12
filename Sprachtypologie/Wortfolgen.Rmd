@@ -676,6 +676,10 @@ legend ("bottomleft"
 
 **Vermutungen**
 
+```{r}
+
+```
+
 
 
 ##4.1 Zusammenhang zwischen den Wortfolgen und den Wortstellung der Adjektiv und Nomen
@@ -687,17 +691,22 @@ legend ("bottomleft"
 
 
 ```{r}
-
+Folge1 <- table(Daten$Wortfolge, Daten$Adjektiv.Nomen)
+Folge1
 ```
 
  
 ```{r}
-
+barplot(Folge1
+        , xlab = "" 
+        , legend = rownames(Folge1)
+        , main = "Zusammenhang zwischen den Wortfolgen und den Wortstellung der Adjektiv und Nomen"
+        , col = "darkblue", "red", "darkgreen")
 ```
 
 
 ```{r}
-
+barplot (Folge1)
 ```
 
 
