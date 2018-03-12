@@ -1,0 +1,27 @@
+﻿Sprache;Land;Gattung;Familie;Latitude;Longitude;Wortfolge;Adjektiv+Nomen;Musik+Mozart;Artikel+Nomen;Farbe+Nomen;Numeral+Nomen;Artikel+Farbe;Artikel+Numeral;Artikel+Adjektiv;Farbe+Adjektiv;Adjektiv+Adjektiv-Umfang
+Deutsch;Deutschland;Germanic;Indoeuropäisch;52.00;10.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Englisch;England;Germanic;Indoeuropäisch;52.00;0.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Niederländisch;Niederland;Germanic;Indoeuropäisch;52.50;6.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Französisch;Frankreich;Romance;Indoeuropäisch;48.00;2.00;SVO;No domiant order;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Italienisch;Italien;Romance;Indoeuropäisch;43.00;12.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Griechisch;Griechland;Greek;Indoeuropäisch;39.00;22.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Portugiesisch;Portugal;Romance;Indoeuropäisch;39.00;-8.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Fa+Adj;Adj-U+Adj
+Polnisch;Poland;Slavic;Indoeuropäisch;52.00;20.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;nicht klar;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Russisch;Russland;Slavic;Indoeuropäisch;56.00;38.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Ukrainisch;Ukraine;Slavic;Indoeuropäisch;49.00;33.00;SVO;Adj+N;MuMo;DET+N;Fa+N;Num+N;nicht klar;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Rumänisch;Romänien;Romance;Indoeuropäisch;46.00;25.00;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;DET+Fa;DET+Num;DET+Adj;Fa+Adj;Adj-U+Adj
+Armenisch;Iran;Armenian;Indoeuropäisch;32.67;51.67;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;nicht klar;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Türkisch;Türkey;Turkic;Altaisch;39.00;35.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Tigrinya;Ethiopia Eritrea;Semitic;Afroasiatisch;14.50;38.50;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Chinesisch;China;Sign Lagnguages;Chinesisch;35.00;115.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Kantonesisch;China;Chinese;Sinotibetisch;23.00;113.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Japanisch;Japan;Japanese;Japanisch;37.00;140.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;nicht klar;DET+Num;DET+Adj;Fa+Adj;Adj+Adj-U
+Koreanisch;Süd Korea;Korean;Koreanisch;37.50;128.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;nicht klar;DET+Num;DET+Adj;Adj+Fa;Adj-U+Adj
+Hindi;Indien;Indic;Indoeuropäisch;25.00;77.00;SOV;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;nicht klar
+Vietnamesisch;Vietnam;Viet-Muong;Austroasiatisch;10.50;106.50;SVO;N+Adj;MuMo;N+DET;N+Fa;Num+N;DET+Fa;Num+DET;Adj+DET;Adj+Fa;Adj+Adj-U
+Indonesisch;Indonesia;Malayo-Sumbawan;Austronesisch;0.00;106.00;SVO;No domiant order;MuMo;N+DET;N+Fa;Num+N;DET+Fa;Num+DET;Adj+DET;Fa+Adj;Adj-U+Adj
+Kroatisch;Kroatien;Slavic;Indoeuropäisch;44.00;19.00;SVO;Adj+N;MoMu;DET+N;Fa+N;Num+N;DET+Fa;Num+DET;DET+Adj;Adj+Fa;Adj+Adj-U
+Georgisch;Georgien;Kartvelian;Südkaukasisch;42.00;44.00;SVO;Adj+N;nicht klar;DET+N;Fa+N;Num+N;Fa+DET;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U
+Berber;Morocco;Berber;Afroasiatisch;33.33;-4.67;SVO;N+Adj;MuMo;DET+N;N+Fa;Num+N;nicht klar;Num+DET;nicht klar;Fa+Adj;Adj+Adj-U
+Persisch;Iran;Iranian;Indoeuropäisch;32.00;54.00;SOV;N+Adj;nicht klar;nicht klar;N+Fa;Num+N;nicht klar;nicht klar;nicht klar;Fa+Adj;nicht klar
+Spanisch;Mexiko;Romance;Indoeuropäisch;19.21;-99.38;SVO;N+Adj;MuMo;DET+N;Fa+N;Num+N;DET+Fa;DET+Num;DET+Adj;Adj+Fa;Adj+Adj-U

@@ -3,13 +3,13 @@ title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphr
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
+  pdf_document:
+    toc: yes
+  html_notebook:
+    toc: yes
   html_document:
     toc: yes
     toc_float: yes
-  html_notebook:
-    toc: yes
-  pdf_document:
-    toc: yes
 ---
 
 #1. Einleitung
@@ -25,22 +25,22 @@ Um den Zusammenhang zwischen der Wortfolge im Satz und Nominalphrase in der Spra
 
 ##2.1 Überlegungen zur Wahl der Informanten und Sprachen
 
-Die Überlegungen zur Wahl der Personen war klar, dass wir nur die Muttersprachler suchen, statt Lehrbücher oder Wörterbuch lesen, um den Übersetzungsbögen ins anderen Sprachen zu übersetzen. Natürlich ist es viel besser, wenn man die Sprachen von der ganzen Welt bekommen und am besten auch ein paar isolierte Sprache oder die Sprache mit wenige Sprecher. 
+Die Überlegungen zur Wahl der Personen war es, dass wir nur die Muttersprachler suchen. Denn die L2-Leaner sind meistens unsicher für die Übersetzung und brauchen Lehrbücher oder Wörterbuch, um den Übersetzungsbögen ins anderen Sprachen zu übersetzen. 
 
-Die insgesamt erhobene 26 Sprachen sind: Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
+Natürlich ist es optimal, wenn man die Sprachen von der ganzen Welt bekommen kann oder von vielen Sprachfamilien, am besten auch ein paar isolierte Sprache oder die Sprache mit wenige Sprecher, erheben kann. Leider habe ich insgesamt nur 26 Sprachen erhoben. Die insgesamt erhobene 26 Sprachen sind: Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
 
 Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt nicht nur Indoeuropäische Sprachen wie Deutsch, Englisch, Niederländisch, Französisch, Spanisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Hindi, Kroatisch und Persisch, sondern auch die isolierten Sprachen wie Koreanisch, Japanisch und Chinesisch. Außerdem sind die Altaische Sprachen wie Türkisch, Afroasiatische Sprachen wie Tigrinja und Berber, Sinotibetische Sprachen wie Kantonesisch, Austroasiatische Sprache wie Vietnamesisch, Austronesisch wie Indonesisch und Südkaukasische Sprachen wie Georgisch. (vgl. Wals.info)
 
 Im Folgenden werden die Daten von den erhobenen Sprachen in "R" eingelesen und schließlich wird eine Karte für eine Übersicht der erhobenen Sprachen mit diesen Daten dargestellt. 
 
 ```{r}
-Karte <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Karte.csv"
+Daten <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Umfragedaten.csv"
                     , header = TRUE
                    , sep = ";")
 ```
 
 ```{r}
-summary(Karte)
+summary(Daten)
 ```
 
 Im Bild 1 werden alle erhobenen Sprachen nach ihrer Räumlichkeit auf der Weltkarte dargestellt. Mit diesem Bild sieht man, dass die erhobene Sprachen gut auf der ganzen Welt geteilt sind. Die meisten Sprachen sind von Europa, aber asiatische und afrikanische Sprachen sind auch dabei.   
@@ -51,7 +51,7 @@ Im Bild 1 werden alle erhobenen Sprachen nach ihrer Räumlichkeit auf der Weltka
 library(maps)
 map("world", interior=FALSE, col="grey", resolution=0)
 
-points(Karte$Longitude, Karte$Latitude
+points(Daten$Longitude, Daten$Latitude
        , col = "red"
        , cex =.7
        , pch = 20)
@@ -59,19 +59,14 @@ points(Karte$Longitude, Karte$Latitude
 title (main = "Übersicht der erhobenen Sprachen ")
 ```
 
-```{r}
-Umfrage <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Umfrage.csv"
-                    , header = TRUE
-                    , sep = ";")
-```
-
-```{r}
-summary(Umfrage)
-```
-
 In Folgenden Bild 2 werden diese erhobenen Sprachen nach der Sprachfamilie dargestellt. Mit dieser Darstellung kann man einen besseren Überblick über die zusammengehörige Sprachfamilie. Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt 16 Indoeuropäische Sprachen und zwei Afroasiatische Sprachen. Außerdem sind die Sprachfamilie Südkaukasische Sprachen, Altaische Sprachen, Austroasiatische Sprachen, Austronesische Sprache, Sinotibetische Sprachen, Chinesisch, Japanisch und Koreanisch auch dabei. Darüber hinaus kann man sagen, dass die erhobenen 26 Sprachen sehr vielfältig sind.    
 
 #### Bild 2: Übersicht der erhobenen Sprachen nach der Sprachfamilie
+
+```{r}
+table(Daten$Familie)
+```
+
 
 ```{r}
 maps::map("world"
@@ -79,31 +74,30 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("red", "darkgreen", "green3", "blue","purple","darkorchid1", "deepskyblue2", "darkblue", "yellowgreen", "gold")
-mycols <- cols[Umfrage$Familie]
+cols <- c("darkgreen", "blue", "yellowgreen", "gold", "purple", "red", "deepskyblue2", "darkblue", "darkorchid1", "green3")
+mycols <- cols[Daten$Familie]
 
 mysymbols <- c(20, 20, 20, 20, 20, 20, 20, 20, 20, 20)
-Sprachefamilie <- mysymbols[Umfrage$Familie]
+Sprachefamilie <- mysymbols[Daten$Familie]
 
-myname <- c("Indoeuropäisch", "Afroasiatisch", "Südkaukasisch", "Altaisch", "Chinesisch", "Sinotibetisch", "Japanisch", "Koreanisch", "Austroasiatisch", "Austronesisch")
+myname <- c("Afroasiatisch", "Altaisch", "Austroasiatisch", "Austronesisch", "Chinesisch", "Indoeuropäisch", "Japanisch", "Koreanisch", "Sinotibetisch", "Südkaukasisch")
 
-points(Umfrage$Longitude, Umfrage$Latitude
+points(Daten$Longitude, Daten$Latitude
        , pch = Sprachefamilie
-       , col = mycols)
+       , col = mycols
+       )
 
 title(main = "Übersicht der erhobenen Sprachen nach der Sprachfamilie")
 
 legend ("bottomleft"
         , legend = myname
-        , pch = Wortfolge
+        , pch = Sprachefamilie
         , col = cols
         , cex = 0.7
         , pt.cex = 1.5)
 ```
 
-Die Auswahl von Farben sind schwirige. 
-
-
+Die Auswahl von Farben in der Karte sind schwierig. Eine Seite sollten die näh zusammengehörige Sprachfamilie eine ähnliche Farbe bekommen, andere Seite sollten die Ortspunkte von Sprachen gut auffällig sind. 
 
 
 ##2.2 Übersetzungssätzen
@@ -135,9 +129,7 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 ##2.3 Methode und Ablauf
 
-
-
-
+Die meisten Informanten sind meine Arbeitskollegen, Freunden oder Kommilitonen. Durch persönliche Gespräche, E-Mails und Nachtrichten von Facebook habe ich sie als Informanten gewinnen. Die Übersetzungsbogen sind entweder in ausgedrückten Papierformen an Informanten persönlich gegeben, oder als Word- oder PDF-Datei an Informanten per E-Mail erreichtet. 
 
 
 
@@ -147,18 +139,7 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 ##3.1 Einlesen der gesamten Ergebnisse der Umfrage 
 
-```{r}
-Umfragesdaten <- read.csv("../sources/Daten_Umfrage.csv"
-                          , header = TRUE
-                          , sep = ";"
-                          , quote = ""
-                          )
 
-```
-
-```{r}
-summary(Umfragesdaten)
-```
 
 
 
@@ -168,20 +149,29 @@ summary(Umfragesdaten)
 #### Bild 3: Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
 ```{r}
+table(Daten$Wortfolge)
+```
+
+
+```{r}
 maps::map("world"
           ,interior = FALSE
           , col = "grey"
           , resolution = 0)
 
 cols <- c("blue", "red")
-mycols <- cols[Umfragesdaten$Wortfolge]
+mycols <- cols[Daten$Wortfolge]
 
 mysymbols <- c(20, 20)
-Wortfolge <- mysymbols[Umfragesdaten$Wortfolge]
+Wortfolge <- mysymbols[Daten$Wortfolge]
 
-myname <- c("SOV-Sprache", "SVO-Sprache")
+freq <- table(Daten$Wortfolge)
+myname <- c(
+      paste0("SOV-Sprache (", freq[1], ")")
+    , paste0("SVO-Sprache (", freq[2], ")")
+    )
 
-points(Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points(Daten$Longitude, Daten$Latitude
        , pch = Wortfolge
        , col = mycols)
 
@@ -209,6 +199,11 @@ Nicht nur auf Satz 1 "Ich koche Suppe" sondern auch alle andere Sätze berücksi
 ### 3.3.1 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
 
+```{r}
+table(Daten$Adjektiv.Nomen)
+```
+
+
 #### Bild 4: Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
 ```{r}
@@ -217,15 +212,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("red", "green", "blue")
-mycols1 <- cols[Umfragesdaten$Adjektiv.Nomen]
+cols <- c("red", "blue", "green3")
+mycols1 <- cols[Daten$Adjektiv.Nomen]
 
 mysymbols <- c(20, 20, 20)
-AdjNon <- mysymbols[Umfragesdaten$Adjektiv.Nomen]
+AdjNon <- mysymbols[Daten$Adjektiv.Nomen]
 
-myname <- c("Adjektiv vor Nomen", "Beides", "Nomen vor Adjektiv")
+myname <- c("Adjektiv vor Nomen (17)", "Nomen vor Adjektiv (7)", "Beides (2)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = AdjNon
        , col = mycols1)
 
@@ -246,6 +241,11 @@ Alle berücksichtige Nominalphrase:
 
 ### 3.3.2 Die Reihenfolge von Artikel und Nomen in Nominalphrase
 
+```{r}
+table(Daten$Artikel.Nomen)
+```
+
+
 
 #### Bild 5: Die Reihenfolge von Artikel und Nomen in Nominalphrase
 
@@ -255,15 +255,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("red", "blue", "grey30")
-mycols2 <- cols[Umfragesdaten$Artikel.Nomen]
+cols <- c("red", "blue", "green3")
+mycols2 <- cols[Daten$Artikel.Nomen]
 
 mysymbols <- c(20, 20, 20)
-ArtNon <- mysymbols[Umfragesdaten$Artikel.Nomen]
+ArtNon <- mysymbols[Daten$Artikel.Nomen]
 
-myname <- c("Artikel vor Nomen", "Nomen vor Artikel", "Nicht Klar")
+myname <- c("Artikel vor Nomen (23)", "Nomen vor Artikel (2)", "Nicht Klar (1)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = ArtNon
        , col = mycols2)
 
@@ -292,6 +292,11 @@ Warum nicht klar? nicht eingegeben? nicht vorkommen? etc.
 
 ### 3.3.3 Die Reihenfolge von Farbe und Nomen in Nominalphrase "roter Ball"
 
+```{r}
+table(Daten$Farbe.Nomen)
+```
+
+
 
 #### Bild 6: Die Reihenfolge von Farbe und Nomen in Nominalphrase: roter Ball
 
@@ -302,14 +307,14 @@ maps::map("world"
           , resolution = 0)
 
 cols <- c("red", "blue")
-mycols3 <- cols[Umfragesdaten$Farbe.Nomen]
+mycols3 <- cols[Daten$Farbe.Nomen]
 
 mysymbols <- c(20, 20)
-FarbNon <- mysymbols[Umfragesdaten$Farbe.Nomen]
+FarbNon <- mysymbols[Daten$Farbe.Nomen]
 
-myname <- c("Farbe vor Nomen", "Nomen vor Farbe")
+myname <- c("Farbe vor Nomen (18)", "Nomen vor Farbe (8)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = FarbNon
        , col = mycols3)
 
@@ -334,6 +339,11 @@ legend ("bottomleft"
 ### 3.3.4 Die Reihenfolge von Numeral und Nomen in Nominalphrase "fünf Häuser"
 
 
+```{r}
+table(Daten$Numeral.Nomen)
+```
+
+
 #### Bild 7: Die Reihenfolge von Numeral und Nomen in Nominalphrase: fünf Häuser
 
 ```{r}
@@ -343,14 +353,14 @@ maps::map("world"
           , resolution = 0)
 
 cols <- c("blue", "red")
-mycols4 <- cols[Umfragesdaten$Numeral.Nomen]
+mycols4 <- cols[Daten$Numeral.Nomen]
 
 mysymbols <- c(20)
-NumNon <- mysymbols[Umfragesdaten$Numeral.Nomen]
+NumNon <- mysymbols[Daten$Numeral.Nomen]
 
-myname <- c("Numeral vor Nomen", "Nomen vor Numeral")
+myname <- c("Numeral vor Nomen (26)", "Nomen vor Numeral (0)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = NumNon
        , col = mycols4)
 
@@ -373,6 +383,12 @@ In allen erhobenen Sprachen sind Numeral vor Nomen in Nominalphrase "fünf Häus
 
 ### 3.3.5 Die Wortfolge von Genitiv und Nomen in Nominalphrase "Musik von Mozart"
 
+```{r}
+table(Daten$Musik.Mozart)
+```
+
+
+
 #### Bild 8: Die Wortfolge von Genitiv und Nomen in Nominalphrase: Musik von Mozart
 
 ```{r}
@@ -381,15 +397,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("red", "blue", "grey30")
-mycols5 <- cols[Umfragesdaten$Musik.Mozart]
+cols <- c("red", "blue", "green3")
+mycols5 <- cols[Daten$Musik.Mozart]
 
 mysymbols <- c(20, 20, 20)
-MuMo <- mysymbols[Umfragesdaten$Musik.Mozart]
+MuMo <- mysymbols[Daten$Musik.Mozart]
 
-myname <- c("Genitiv vor Nomen", "Nomen vor Genitiv", "Nicht klar")
+myname <- c("Genitiv vor Nomen (9)", "Nomen vor Genitiv (15)", "Nicht klar (2)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = MuMo
        , col = mycols5)
 
@@ -416,6 +432,10 @@ legend ("bottomleft"
 
 ### 3.4.1 Die Reihenfolge von Artikel und Farbe in Nominalphrase "einen roten Ball"
 
+```{r}
+table(Daten$Artikel.Farbe)
+```
+
 #### Bild 9: Die Reihenfolge von Artikel und Farbe in Nominalphrase: einen roten Ball
 
 ```{r}
@@ -424,15 +444,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("blue", "red", "grey30")
-mycols6 <- cols[Umfragesdaten$Artikel.Farbe]
+cols <- c("blue", "red", "green3")
+mycols6 <- cols[Daten$Artikel.Farbe]
 
 mysymbols <- c(20, 20, 20)
-ArtFa <- mysymbols[Umfragesdaten$Artikel.Farbe]
+ArtFa <- mysymbols[Daten$Artikel.Farbe]
 
-myname <- c("Artikel vor Farbe", "Farbe vor Artikel", "Nicht klar")
+myname <- c("Artikel vor Farbe (28)", "Farbe vor Artikel (1)", "Nicht klar (7)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = ArtFa
        , col = mycols6)
 
@@ -457,6 +477,11 @@ legend ("bottomleft"
 ### 3.4.2 Die Reihenfolge von Artikel und Numeral in Nominalphrase "diese fünf Häuser"
 
 
+```{r}
+table(Daten$Artikel.Numeral)
+```
+
+
 #### Bild 10: Die Reihenfolge von Artikel und Numeral in Nominalphrase: diese fünf Häuser
 
 ```{r}
@@ -465,15 +490,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("blue", "red", "grey30")
-mycols7 <- cols[Umfragesdaten$Artikel.Numeral]
+cols <- c("blue", "green3", "red")
+mycols7 <- cols[Daten$Artikel.Numeral]
 
 mysymbols <- c(20, 20, 20)
-ArtNum <- mysymbols[Umfragesdaten$Artikel.Numeral]
+ArtNum <- mysymbols[Daten$Artikel.Numeral]
 
-myname <- c("Artikel vor Numeral", "Numeral vor Artikel", "Nicht klar")
+myname <- c("Artikel vor Numeral (21)", "Nicht klar (1)", "Numeral vor Artikel (4)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = ArtNum
        , col = mycols7)
 
@@ -499,6 +524,10 @@ legend ("bottomleft"
 
 ### 3.4.3 Die Reihenfolge von Artikel und Adjektiv in Nominalphrase "das feuchte Holz"
 
+```{r}
+table(Daten$Artikel.Adjektiv)
+```
+
 
 #### Bild 11: Die Reihenfolge von Artikel und Adjektiv in Nominalphrase: das feuchte Holz
 
@@ -508,15 +537,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("blue", "red", "grey30")
-mycols8 <- cols[Umfragesdaten$Artikel.Adjektiv]
+cols <- c("blue", "red", "green3")
+mycols8 <- cols[Daten$Artikel.Adjektiv]
 
 mysymbols <- c(20, 20, 20)
-ArtAdj <- mysymbols[Umfragesdaten$Artikel.Adjektiv]
+ArtAdj <- mysymbols[Daten$Artikel.Adjektiv]
 
-myname <- c("Artikel vor Adjektiv", "Adjektiv vor Artikel", "Nicht klar")
+myname <- c("Adjektiv vor Artikel (22)", "Artikel vor Adjektiv (2)", "Nicht klar (2)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = ArtAdj
        , col = mycols8)
 
@@ -541,7 +570,9 @@ legend ("bottomleft"
 
 ### 3.4.4 Die Reihenfolge von Farbe und Adjektiv in Nominalphrase "schönen roten Ball"
 
-
+```{r}
+table(Daten$Farbe.Adjektiv)
+```
 
 #### Bild 12: Die Reihenfolge von Adjektiv und Farbe in Nominalphrase: schönen roten Ball
 
@@ -552,14 +583,14 @@ maps::map("world"
           , resolution = 0)
 
 cols <- c("blue", "red")
-mycols9 <- cols[Umfragesdaten$Farbe.Adjektiv]
+mycols9 <- cols[Daten$Farbe.Adjektiv]
 
 mysymbols <- c(20, 20)
-FaAdj <- mysymbols[Umfragesdaten$Farbe.Adjektiv]
+FaAdj <- mysymbols[Daten$Farbe.Adjektiv]
 
-myname <- c("Adjektiv vor Farbe", "Farbe vor Adjektiv")
+myname <- c("Adjektiv vor Farbe (20)", "Farbe vor Adjektiv (6)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = FaAdj
        , col = mycols9)
 
@@ -581,6 +612,9 @@ legend ("bottomleft"
 
 ### 3.4.5 Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase "schönen großen Ball"
 
+```{r}
+table(Daten$Adjektiv.Adjektiv.Umfang)
+```
 
 #### Bild 13: Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase: schönen großen Ball
 
@@ -590,15 +624,15 @@ maps::map("world"
           , col = "grey"
           , resolution = 0)
 
-cols <- c("blue", "red", "grey30")
-mycols10 <- cols[Umfragesdaten$Adjektiv.Adjektiv.Umfang]
+cols <- c("blue", "red", "green3")
+mycols10 <- cols[Daten$Adjektiv.Adjektiv.Umfang]
 
 mysymbols <- c(20, 20, 20)
-AdjAdjU <- mysymbols[Umfragesdaten$Adjektiv.Adjektiv.Umfang]
+AdjAdjU <- mysymbols[Daten$Adjektiv.Adjektiv.Umfang]
 
-myname <- c("Umfangsadjektiv vor Adjektiv", "Adjektiv vor Umfangsadjektiv", "Nicht klar")
+myname <- c("Umfangsadjektiv vor Adjektiv (8)", "Adjektiv vor Umfangsadjektiv (16)", "Nicht klar (2)")
 
-points (Umfragesdaten$Longitude, Umfragesdaten$Latitude
+points (Daten$Longitude, Daten$Latitude
        , pch = AdjAdjU
        , col = mycols10)
 
@@ -649,10 +683,6 @@ legend ("bottomleft"
 
 
 
-```{r}
-
-```
-
 
 
 
@@ -661,7 +691,14 @@ legend ("bottomleft"
 ```
 
  
+```{r}
 
+```
+
+
+```{r}
+
+```
 
 
 #5. Allgemeine Diskussion und Ausblick
@@ -677,9 +714,13 @@ In Vielen Sprachen wird der Subjekt nicht eingegeben, wenn es "ich" ist. "Ich" a
 
 
 
+Kritik:
+1 Nur mit ein paar Sätzen von Übersetzungen kann man nicht alle Variationen von einer Sprache bekommen, sondern nur die passende Form von diesem Satz. Das bedeutet noch lange nicht, dass andere Form in dieser Sprache nicht gibt.
+
+2 Die im Text vergleichende Reihfolgen sind auch nicht unbedingt so ausgedrückt in der Sprache in allen Ausdrückssituationen. 
 
 
-
+Jedoch gibt es uns eine gute Überblick von Sprachen der Welt, dass die Sprache sehr vielfältig sind und doch einen Zusammenhang mit einandern haben.
 
 
 
