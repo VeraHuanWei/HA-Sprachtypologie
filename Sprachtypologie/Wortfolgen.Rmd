@@ -1,5 +1,5 @@
 ---
-title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen von Sprachen der Welt
+title: Zusammenhangen zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen von Sprachen der Welt
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
@@ -14,14 +14,27 @@ output:
 
 #1. Einleitung
 
-Sprache der Welt & Sprachtypologie
+Insgesamt gibt es ca. 6500 bis 7000 Sprachen auf der Welt. Etwa die Hälfte der Erdbevölkerung sprechen eine der 10 meistgesprochenen Sprachen. Die sind Mandarin-Chinesisch, Englisch, Spanisch, Hindi, Arabisch, Portugiesisch, Bengali, Russisch, Japanisch und Deutsch. 
 
-Idee fürs Umfrage etc.
+Verschiedene Sprachen haben verschiedene Wortstellungsmöglichkeiten, zum Beispiel ist die Wortfolge auf Deutsch Subjekt-Verb-Objekt, wie im Satz "Ich koche Suppe.", aber auf Japanisch ist die Wortfolge Subjekt-Objekt-Verb, wie im Satz:
+Watashi wa su-pu  wo  tsukuru 
+Ich        Suppe       kochen
 
+
+
+Jedoch kann man nicht sagen, dass die Sprachen auf der Welt keine Gemeinsamkeiten haben. Denn alle Sprachen haben Wörter und Sätze, Wörter werden aus elementaren bedeutungslosen Lauten oder Gesten gebildet, alle Sprachen haben komplexe morphologische und/oder syntaktische Strukturen, alle Sprachen haben Frageausdrücke und Verneinungsausdrücke usw. 
+
+Es lassen sich oft universale Behauptungen nur aufstellen, wenn eine weitere Bedingung erfüllt ist: Implikationsuniversalien (vgl. W. Croft 2009).
+"Wenn eine Sprache L die Eigenschaft A hat, dann hat sie auch die Eigenschaft B"
+
+Beispielsweise "Wenn eine Sprache ein [f] Laut hat, dann hat sie auch ein [s] Laut; Wenn in einer Sprache das Objekt dem Verb vorangeht "Der Hund die Katze jagt", dann steht auch der Besitzer vor dem Besitz "des Hundes Hütte".
+
+Nach dieser Theorie wird in dieser Umfrage den Zusammenhangen zwischen den Wortfolgen im Satz und den Wortstellungen in Nominalphrasen von Sprachen der Welt anschauen, ob es nach dieser Theorie auch Ausnahme gibt oder die Zusammenhangen nach Statistik signifikant ist. 
 
 #2. Eigene Untersuchung
 
-Um den Zusammenhang zwischen der Wortfolge im Satz und Nominalphrase in der Sprache herauszufinden, wurde einen Fragebogen mit 10-deutschen Sätzen an Informanten mit verschiedene Muttersprachen gegeben. Von Januar bis Ende Februar 2018 habe ich insgesamt 26 Fragebogen von Informanten zurückbekommen. 
+Um den Zusammenhangen zwischen der Wortfolge im Satz und den Wortstellungen in Nominalphrasen in der Sprache herauszufinden, wurde einen Fragebogen mit 10-deutschen Sätzen an Informanten mit verschiedene Muttersprachen gegeben. Von Januar bis Ende Februar 2018 habe ich insgesamt 26 Fragebogen von Informanten zurückbekommen.
+
 
 ##2.1 Überlegungen zur Wahl der Informanten und Sprachen
 
@@ -469,7 +482,7 @@ legend ("bottomleft"
 
 
 
-
+??? Warum so vile "nicht klar"
 
 
 
@@ -686,28 +699,157 @@ legend ("bottomleft"
 
 
 
-
-
-
-
 ```{r}
 Folge1 <- table(Daten$Wortfolge, Daten$Adjektiv.Nomen)
 Folge1
 ```
 
- 
+
+
+
+
 ```{r}
-barplot(Folge1
-        , xlab = "" 
-        , legend = rownames(Folge1)
-        , main = "Zusammenhang zwischen den Wortfolgen und den Wortstellung der Adjektiv und Nomen"
-        , col = "darkblue", "red", "darkgreen")
+barplot (Folge1
+         , main = "Zusammenhang zwischen den Wortfolgen und
+den Wortstellung der Adjektiv und Nomen"
+         )
+```
+Der Unterschied zwischen den Sprachen kann man auch mit einem Boxplot darstellen, aber das hilft nicht so viel, weil jeder Vokal anders ist. 
+
+
+```{r}
+mosaicplot(Folge1
+           , color = TRUE
+           , xlab = "Wortfolge"
+           , ylab = "Wortstllung der Adjektiv und Nomen"
+           , main = "Zusammenhang zwischen den Wortfolgen und 
+den Wortstellungen der Adjektiv und Nomen")
 ```
 
 
 ```{r}
-barplot (Folge1)
+chisq.test(Folge1)
 ```
+
+
+
+```{r}
+t.test(Folge1)
+```
+
+
+??? 
+```{r}
+cor.test(Folge1, Folge1)
+```
+
+
+
+
+##4.2 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Artikel und Nomen 
+
+
+
+```{r}
+Folge2 <- table(Daten$Wortfolge, Daten$Artikel.Nomen)
+Folge2
+```
+
+
+
+
+
+
+```{r}
+mosaicplot (Folge2
+            , color = TRUE
+        , xlab = "Wortfolgen"
+        , ylab = "Wortstellung von Artikel und Nomen"
+        , main = "Zusammenhang zwischen den Wortfolgen und
+        den Wortstellungen der Artikel und Nomen ")
+```
+
+
+```{r}
+chisq.test(Folge2)
+```
+
+```{r}
+t.test(Folge2)
+```
+
+```{r}
+cor.test(Folge2, Folge2)
+```
+
+
+
+##4.3 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Farbe und Nomen 
+
+
+
+```{r}
+Folge3 <- table(Daten$Wortfolge, Daten$Farbe.Nomen)
+Folge3
+```
+
+
+```{r}
+mosaicplot (Folge3
+        , color = TRUE
+        , xlab = "Wortfolgen"
+        , ylab = "Wortstellung von Farbe und Nomen"
+        , main = "Zusammenhang zwischen den Wortfolgen und
+den Wortstellungen der Farbe und Nomen ")
+```
+
+
+```{r}
+chisq.test(Folge3)
+```
+
+
+```{r}
+t.test(Folge3)
+```
+
+
+##4.4 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Numeral und Nomen 
+
+```{r}
+Folge4 <- table(Daten$Wortfolge, Daten$Numeral.Nomen)
+Folge4
+```
+
+```{r}
+mosaicplot (Folge4
+        , xlab = "Wortfolgen"
+        , ylab = "Wortstellung von Numeral und Nomen"
+        , main = "Zusammenhang zwischen den Wortfolgen und
+den Wortstellungen der Numeral und Nomen ")
+```
+
+
+```{r}
+chisq.test(Folge4)
+```
+
+
+```{r}
+t.test(Folge4)
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+
+
 
 
 #5. Allgemeine Diskussion und Ausblick
@@ -737,8 +879,8 @@ Jedoch gibt es uns eine gute Überblick von Sprachen der Welt, dass die Sprache 
 #Literatur- und Quellenverzeichnis
 
 - Koordinate für die erhobenen Sprachen: http://wals.info/languoid (aufgerufen am 22.02.2018)
-
-
+- Croft W. Typology and universals[M]. Cambridge University Press, 2002.
+- M. Haspelmath: Sprachen der Welt. Max-Planck-Institut für evolutionäre Anthropologie (1999-2005) http://home.uni-leipzig.de/muellerg/su/haspelmath.pdf (aufgerufen am 14.03.2018)
 
 
 
