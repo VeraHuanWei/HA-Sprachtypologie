@@ -148,21 +148,29 @@ Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Lei
 
 Die meisten Informanten sind meine Arbeitskollegen, Freunde oder Kommilitonen. Durch persönliche Gespräche, E-Mails und Nachtrichten von Facebook habe ich sie als Informanten gewonnen. Die Übersetzungsbogen sind entweder in ausgedrückten Papierformen an Informanten persönlich gegeben, oder als Word- und PDF-Datei an Informanten per E-Mail erreichtet. Die Informanten haben durchschnittlich ca. eine Woche gebraucht, bis sie uns die Übersetzungen zurückgeben. Viele Sprachen, wie Kroatisch, Armenisch und Rumänisch, hatten die Informanten weiter ihre Freunde für uns gefragt. Zusammenfassende kann man sagen, dass Enkodierung der Informanten nicht sehr schwierig war. Denn sie sind sehr motiviert, ihre Muttersprache für andre Person zu erklären und die Unterschieden zwischen ihre Muttersprache und Deutsch zu erkennen. 
 
-Die Umfragebogen "Umfrage Studie Sprachtypologie" ist unten Ordner "Umfrage" zu finden. Außerdem sind 22 erhobene Umfragebogen auch in demselben Ordner zu finden. 
+Die Umfragebogen "Umfrage Studie Sprachtypologie" ist unten Ordner "Umfrage" zu finden. Außerdem sind noch 22 erhobene Umfragebogen auch in demselben Ordner zu finden. 
 
 
 #3. Ergebnisse der Umfrage
 
+Die Ergebnisse der Umfragesätze sind zuerst nach Sprache analysiert. Die Wortfolge in Sätzen und die Wortstellung im Nominalphrasen sind nach jeder Sprache sehr genau berücksichtigt. Die Ergebnisse sind als Excel-Datei "Umfrage Analyse" unter Ordner sources zu finden. 
 
+Für die Analyse in R wird die Excel-Datei "Daten_Umfrage" genutzt. In dieser Analyse sind Sprache nach Land, Gattung und Familie zuerst geachtet. Außerdem sind Longitude und Latitude von der Sprache nach Wals.info für das Erstellen der Karte geachtet. Die Analyse von Daten sind außer Wortfolge unter sehr viele kleine Elementpaare geteilt, wie "Adjektiv + Nomen", "Musik + Mozart", "Artikel + Nomen", "Farbe + Nomen", "Numerale + Nomen", "Artikel + Farbe", "Artikel + Numerale", "Artikel + Adjektiv", "Farbe + Adjektiv" und "Adjektiv + Adjektiv-Umfrang". 
+
+Im Folgenden werden nicht nur die Verteilung der Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen in Weltkarte dargestellt, sondern auch die Wortstellungen in Nominalphrasen und die Reihenfolge von verschiedenen Arten der Adjektive in Nominalphrase der erhobenen Sprachen. 
 
 ##3.1 Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
+Für die Wortfolgen von Subjekt, Objekt und Verb werden nicht nur nach dem Satz 1 "Ich koche Suppe" festgestellt, sondern auch alle weitere neun Sätze von Umfragebogen. 
+
+Mit der Funktion "table()" können wir die Verteilung der Wortfolg von der erhobenen Sprachen sehen. In diesen Sprachen gibt es insgesamt sechs Sprache, die Subjekt-Objekt-Verb Wortfolge haben, und insgesamt 20 Sprache, die Subjekt-Verb-Objekt Wortfolge haben. 
 
 #### Karte 3: Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
 ```{r}
 table(Daten$Wortfolge)
 ```
+
 
 
 ```{r}
@@ -198,7 +206,7 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-Nicht nur auf Satz 1 "Ich koche Suppe" sondern auch alle andere Sätze berücksichtigt. 
+
 
 
 
