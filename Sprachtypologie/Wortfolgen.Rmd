@@ -3,13 +3,13 @@ title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphr
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: yes
-  html_notebook:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
+  html_notebook:
+    toc: yes
+  pdf_document:
+    toc: yes
 ---
 
 
@@ -41,17 +41,19 @@ Diese Arbeit wird mit Statistik "R" geschrieben und alle Daten werden in "R" ein
 
 #2. Eigene empirische Arbeit
 
-Um den Zusammenhangen zwischen der Wortfolge im Satz und den Wortstellungen in Nominalphrasen in der Sprache herauszufinden, wurde einen Fragebogen mit 10-deutschen Sätzen an verschiedene Muttersprachler gegeben. Von Dezember 2017 bis Ende Februar 2018 habe ich insgesamt 26 Fragebogen von Informanten zurückbekommen. Mit diesen 26 Sprachen werden die Implikationsuniversalien genau angeschaut. 
+Um den Zusammenhangen zwischen der Wortfolge im Satz und den Wortstellungen in Nominalphrasen in der Sprache herauszufinden, wurde einen Fragebogen mit 10-deutschen Sätzen an verschiedene Muttersprachler gegeben. Von Dezember 2017 bis Ende Februar 2018 wurden insgesamt 25 Fragebogen von Informanten zurückbekommen. Mit diesen 26 Sprachen (inklusiv Deutsch) werden die Implikationsuniversalien genau angeschaut. 
 
 ##2.1 Überlegungen zur Wahl der Informanten und Sprachen
 
 Die Überlegungen zur Wahl der Personen war, dass wir nur die Muttersprachler suchen. Denn die L2-Leaner sind meistens unsicher und brauchen Lehrbücher oder Wörterbuch, um den Übersetzungsbögen ins anderen Sprachen zu übersetzen. Aber Muttersprachler können meistens die passenden Ausdrücken in ihrer Muttersprache besser finden.  
 
-Natürlich ist es beim Erheben optimal, wenn man die Sprachen von vielen Sprachfamilien als Quellen bekommen kann, am besten auch ein paar isolierte Sprachen oder die Sprachen mit wenige Sprecher dabei könnten. Die insgesamt erhobene 26 Sprachen sind: Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
+Es ist beim Erheben optimal, wenn man die Sprachen von vielen Sprachfamilien als Quellen bekommen kann, am besten auch ein paar isolierte Sprachen oder die Sprachen mit wenige Sprecher dabei könnten. Die insgesamt erhobenen Sprachen sind: Deutsch, Englisch, Niederländisch, Französisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Armenisch, Türkisch, Tigrinja, Hindi, Vietnamesisch, Indonesisch, Kroatisch, Georgisch, Berber, Persisch und Spanisch von Mexiko. 
 
-Obwohl es nur 26 Sprachen sind, aber diese erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt nicht nur Indoeuropäische Sprachen wie Deutsch, Englisch, Niederländisch, Französisch, Spanisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Hindi, Kroatisch und Persisch, sondern auch die isolierten Sprachen wie Koreanisch, Japanisch und Chinesisch. Außerdem sind die Altaische Sprachen wie Türkisch, Afroasiatische Sprachen wie Tigrinja und Berber, Sinotibetische Sprachen wie Kantonesisch, Austroasiatische Sprache wie Vietnamesisch, Austronesisch wie Indonesisch und Südkaukasische Sprachen wie Georgisch (vgl. Wals.info).
+Obwohl es nur 26 Sprachen erhoben wurde, aber diese Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt nicht nur Indoeuropäische Sprachen wie Deutsch, Englisch, Niederländisch, Französisch, Spanisch, Italienisch, Griechisch, Portugiesisch, Polnisch, Russisch, Ukrainisch, Rumänisch, Hindi, Kroatisch und Persisch, sondern auch die isolierten Sprachen wie Koreanisch, Japanisch und Chinesisch. Außerdem sind die Altaische Sprachen wie Türkisch, Afroasiatische Sprachen wie Tigrinja und Berber, Sinotibetische Sprachen wie Kantonesisch, Austroasiatische Sprache wie Vietnamesisch, Austronesisch wie Indonesisch und Südkaukasische Sprachen wie Georgisch (vgl. Wals.info).
 
 Im Folgenden werden die Daten von den erhobenen Sprachen in "R" eingelesen und schließlich wird eine Karte für eine Übersicht der erhobenen Sprachen mit diesen Daten dargestellt.
+
+Die Analyse von den erhobenen Sprachen ist als "Umfragedaten.csv" unter Ordner "sources" gespeichert. Hier wird es mit "read.csv()" in R eingelesen und als "Daten" genannt. Mit der Funktion "summary()" kann man die Strukturen von der Datei anschauen.
 
 ```{r}
 Daten <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Umfragedaten.csv"
@@ -63,11 +65,11 @@ Daten <- read.csv ("//Users/verawei/Desktop/HA Sprachtypologie/sources/Umfrageda
 summary(Daten)
 ```
 
-Die Analyse von den erhobenen Sprachen ist als "Umfragedaten.csv" unter Ordner "sources" gespeichert. Hier wird es mit "read.csv()" in R eingelesen und als "Daten" genannt. Mit der Funktion "summary()" kann man die Strukturen von der Datei anschauen. 
+Mit der Darstellung kann man die Strukturen von der Analysedatei klar verstehen. Der erste Spalt von der Datei sind die 26 erhobenen Sprachen und das erste Ziel von der Datei sind die 17 Verteilungen: "Sprache", "Land", "Gattung", "Familie", "Latitude", "Longitude", "Wortfolge", "Adjektiv + Nomen", "Musik + Mozart", "Artikel + Nomen", "Farbe + Nomen", "Numerale + Nomen", "Artikel + Farbe", "Artikel + Numerale", "Artikel + Adjektiv", "Farbe + Adjektiv" und "Adjektiv + Adjektiv_Umfang". 
 
 #### Karte 1: Übersicht der erhobenen Sprachen
 
-In der Karte  1 werden alle erhobenen Sprachen nach ihrer Räumlichkeit auf der Weltkarte dargestellt. Mit diesem Bild sieht man, dass die erhobene Sprachen gut auf der ganzen Welt geteilt sind. Die meisten Sprachen sind von Europa, aber asiatische und afrikanische Sprachen sind auch dabei. 
+In der Karte 1 werden alle erhobenen Sprachen nach ihrer Räumlichkeit auf der Weltkarte dargestellt. Die Karte 1 zeigt, dass die erhobene Sprachen gut auf der ganzen Welt geteilt sind. Die meisten Sprachen sind europäische Sprachen, aber asiatische und afrikanische Sprachen sind auch dabei.
 
 ```{r}
 library(maps)
@@ -83,12 +85,13 @@ title (main = "Übersicht der erhobenen Sprachen ")
 
 #### Karte 2: Übersicht der erhobenen Sprachen nach der Sprachfamilie
 
-In Folgender Karte 2 werden diese erhobenen Sprachen nach der Sprachfamilie dargestellt. Mit dieser Darstellung kann man einen besseren Überblick über die zusammengehörige Sprachfamilie. Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt. Es gibt 16 Indoeuropäische Sprachen und zwei Afroasiatische Sprachen. Außerdem sind die Sprachfamilie Südkaukasische Sprachen, Altaische Sprachen, Austroasiatische Sprachen, Austronesische Sprache, Sinotibetische Sprachen, Chinesisch, Japanisch und Koreanisch auch dabei. Darüber hinaus kann man sagen, dass die erhobenen 26 Sprachen sehr vielfältig sind.
+In Folgender Karte 2 werden diese erhobenen Sprachen nach ihrer Sprachfamilie dargestellt. Mit dieser Darstellung kann man einen besseren Überblick über die Sprachen und ihre zusammengehörige Sprachfamilie bekommen. Die erhobenen Sprachen sind gut auf den Sprachfamilien geteilt.  
 
 ```{r}
 table(Daten$Familie)
 ```
 
+Mit der Funktion "table()" bekommt man die Verteilung der Datei in "R". Es zeigt, dass es insgesamt 16 Indoeuropäische Sprachen und zwei Afroasiatische Sprachen gibt. Außerdem sind die Sprachfamilie Südkaukasische Sprachen, Altaische Sprachen, Austroasiatische Sprachen, Austronesische Sprache, Sinotibetische Sprachen, Chinesisch, Japanisch und Koreanisch auch dabei. Darüber hinaus kann man sagen, dass die erhobenen 26 Sprachen sehr vielfältig sind. 
 
 ```{r}
 maps::map("world"
@@ -124,7 +127,7 @@ Um die Struktur von den Sprachen mit Farben darzustellen, habe ich zuerst mit de
 ##2.2 Übersetzungssätzen
 
 Dieser Übersetzungsbogen wurde von mir und zwei weiteren Studentinnen zusammengestellt.
-Mit diesem Übersetzungsbogen möchten wir herausfinden, wie bestimmte Sätze in verschiedene Sprachen aufgebaut sind, wie Superlativ und Modalpartikeln. Daher enthält der Übersetzungsbogen folgende Zehn Sätze:
+Mit diesem Übersetzungsbogen möchten wir herausfinden, wie bestimmte Sätze in verschiedene Sprachen aufgebaut sind, wie Superlativ und Modalpartikeln. Daher enthält der Übersetzungsbog folgende Zehn Sätze:
 
 1. Ich koche Suppe. 
 2. Der Bäcker backt ja das Brot am schnellsten. 
@@ -137,22 +140,26 @@ Mit diesem Übersetzungsbogen möchten wir herausfinden, wie bestimmte Sätze in
 9. Kleine Hunde bellen aber am lautesten. 
 10. Das feuchte Holz verbrennt am schlechtesten. 
 
-Ich interessiere mich über den Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der Sprachen. Für mein Analysieren sind nur folgende Satzteilen relevant: 
+Ich interessiere mich über den Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der Sprachen. Für meine Analyse sind nur folgende Satzteilen relevant: 
 
-- 1. Ich koche Suppe. [Subjekt + Verb + Objekt]
-- 3. Musik von Mozart [ Nomen + Nomen]
-- 4. diese fünf großen Häuser [DET + Num + Adj-Umfang + N]
--	5. einen schönen großen roten Ball [ ART + Adj + Adj-Umfang + Farbe + N]
--	9. kleine Hunde [Adj + N]
--	10. das feuchte Holz [DET + Adj + N]
+- vom ersten Satz: Ich koche Suppe. [Subjekt + Verb + Objekt]
+- vom dritten Satz: Musik von Mozart [ Nomen + Nomen]
+- vom vierten Satz: diese fünf großen Häuser [DET + Num + Adj-Umfang + N]
+- vom fünften Satz: einen schönen großen roten Ball [ ART + Adj + Adj-Umfang + Farbe + N]
+- vom neunten Satz: kleine Hunde [Adj + N]
+- vom zehnten Satz: das feuchte Holz [DET + Adj + N]
 
-Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Leider gibt es viele Sprachen, wenn der Subjekt im Satz "ich" ist, fällt den Subjekt weg und wird mit der Endung von Verb markiert. Daher habe ich die Wortfolgen von der Sprache immer auf alle gefragte zehn Sätzen berücksichtigt. Mit Phrase "Musik von Mozart" wird die Genitiv-Nomen-Reihenfolge analysiert, damit wird die Reihenfolge für Genitiv-Nomen oder Nomen-Genitiv in der Sprache festgestellt. Mit Sätzen 4, 5, 9, 10 werden die Reihenfolgen von verschiedenen Elementen in der Nominalphrase der erhobenen Sprachen festgestellt. 
+Mit dem Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Leider gibt es viele Sprachen, wenn der Subjekt im Satz "ich" ist, fällt den Subjekt weg und wird mit der Endung von Verb markiert. Daher habe ich die Wortfolgen von der Sprache immer auf alle gefragte zehn Sätzen berücksichtigt. 
 
-Außerdem sind die Nominalphrasen von Sätzen 3, 4 und 5 als Direktobjekt im Satz, aber im Satz 9 und 10 sind die Nominalphrasen als Subjekt. Diese Ansicht wird auch bei der Analyse berücksichtigt. Außerdem sind die Nominalphrasen von Sätzen 3, 4 und 5 als Direktobjekt im Satz, aber im Satz 9 und 10 sind die Nominalphrasen als Subjekt. Durch die Analyse von den erhobenen Sprachen zeigt es keine Unterschieden von der Wortstellung in Nominalphrasen von diesen fünf Sätzen (sehen Sie Daten von "Umfrage Analyse.xlsx").
+Mit Phrase "Musik von Mozart" wird die Genitiv-Nomen-Reihenfolge analysiert, damit wird die Reihenfolge für Genitiv-Nomen oder Nomen-Genitiv in der Sprache festgestellt. Mit den Satzteilen von Sätzen 4, 5, 9, 10 werden die Reihenfolgen von verschiedenen Elementen in der Nominalphrase der erhobenen Sprachen festgestellt. 
+
+Außerdem sind die Nominalphrasen von Sätzen 3, 4 und 5 den Direktobjekt, aber im Satz 9 und 10 sind die Nominalphrasen das Subjekt. Durch die Analyse von den erhobenen Sprachen zeigt es keine Unterschieden von der Wortstellung in Nominalphrasen von diesen fünf Sätzen (sehen Sie Daten von "Umfrage Analyse.xlsx").
 
 ##2.3 Methode und Ablauf
 
-Die meisten Informanten sind meine Arbeitskollegen, Freunde oder Kommilitonen. Durch persönliche Gespräche, E-Mails und Nachtrichten von Facebook habe ich sie als Informanten gewonnen. Die Übersetzungsbogen sind entweder in ausgedrückten Papierformen an Informanten persönlich gegeben, oder als Word- und PDF-Datei an Informanten per E-Mail erreichtet. Die Informanten haben durchschnittlich ca. eine Woche gebraucht, bis sie uns die Übersetzungen zurückgeben. Viele Sprachen, wie Kroatisch, Armenisch und Rumänisch, hatten die Informanten weiter ihre Freunde für uns gefragt. Zusammenfassende kann man sagen, dass Enkodierung der Informanten nicht sehr schwierig war. Denn sie sind sehr motiviert, ihre Muttersprache für andre Person zu erklären und die Unterschieden zwischen ihre Muttersprache und Deutsch zu erkennen. 
+Die meisten Informanten sind meine Arbeitskollegen, Freunde oder Kommilitonen. Durch persönliche Gespräche, E-Mails und Nachtrichten von Facebook habe ich sie als Informanten gewonnen. Die Übersetzungsbogen sind entweder in ausgedrückten Papierformen an Informanten persönlich gegeben, oder als Word- und PDF-Datei an Informanten per E-Mail erreichtet. Die Informanten haben durchschnittlich ca. eine Woche gebraucht, bis sie mir die Übersetzungen zurückgeben. 
+
+Die Sprachen, wie Kroatisch, Armenisch und Rumänisch, hatten die Informanten weiterhin ihre Freunde für die Fragebogen geleitet. Zusammenfassende kann man sagen, dass Enkodierung der Informanten nicht sehr schwierig war. Denn sie sind sehr motiviert, ihre Muttersprache zu andren weiter zu erklären und die Unterschieden zwischen ihre Muttersprache und Deutsch besser zu erkennen. 
 
 Die Umfragebogen "Umfrage Studie Sprachtypologie" ist unten Ordner "Umfrage" zu finden. Außerdem sind noch 22 erhobene Umfragebogen auch in demselben Ordner zu finden. 
 
@@ -169,15 +176,13 @@ Im Folgenden werden nicht nur die Verteilung der Wortfolge von Subjekt, Objekt u
 
 Für die Wortfolgen von Subjekt, Objekt und Verb werden nicht nur nach dem Satz 1 "Ich koche Suppe" festgestellt, sondern auch alle weitere neun Sätze von Umfragebogen. 
 
-Mit der Funktion "table()" können wir die Verteilung der Wortfolg von der erhobenen Sprachen sehen. In diesen Sprachen gibt es insgesamt sechs Sprache, die Subjekt-Objekt-Verb Wortfolge haben, und insgesamt 20 Sprache, die Subjekt-Verb-Objekt Wortfolge haben. 
-
 #### Karte 3: Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen
 
 ```{r}
 table(Daten$Wortfolge)
 ```
 
-
+Mit der Funktion "table()" können wir die Verteilung der Wortfolge von der erhobenen Sprachen sehen. In diesen Sprachen gibt es insgesamt sechs Sprache, die "Subjekt-Objekt-Verb (SOV)" Wortfolge haben und insgesamt 20 Sprache, die "Subjekt-Verb-Objekt (SVO)" Wortfolge haben. 
 
 ```{r}
 maps::map("world"
@@ -212,24 +217,24 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
-
+Auf der Karte 3 "Die Wortfolge von Subjekt, Objekt und Verb der erhobenen Sprachen" sind alle 6 SOV-Sprache in blauen Pünktchen und alle 20 SVO-Sprache in roten Pünktchen auf der Weltkarte geteilt. Diese Karte gibt man einen guten Überblick über die Verteilung von Wortfolge von allen erhobenen Sprachen. 
 
 
 ##3.2 Die Wortstellungen in Nominalphrasen der erhobenen Sprachen
 
+Die Wortstellungen in Nominalphrasen werden die Elemente immer im Pärchen vergleicht und dargestellt: die Reihenfolge von Adjektiv und Nomen in Nominalphrase, die Reihenfolge von Artikel und Nomen in Nominalphrase, die Reihenfolge von Farbe und Nomen in Nominalphrase, die Reihenfolge von Numerale und Nomen in Nominalphrase und die Reihenfolge von Genitiv und Nomen in Nominalphrase. 
 
-
+Außerdem werden die Wortstellungen von den verschiedenen Arten der Adjektive in Nominalphrase auch dargestellt: die Reihenfolge von Artikel und Farbe, die Reihenfolge von Artikel und Numerale, die Reihenfolge von Artikel und Adjektiv, die Reihenfolge von Farbe und Adjektiv und die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrasen.
 
 ### 3.2.1 Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
+Um die Reihenfolge von Adjektiv und Nomen von den erhobenen Sprachen festzulegen, wurden diesen Satzteilen berücksichtigt: "große Häuser", "schönen großen Ball", "kleine Hunde" und "feuchtes Holz". Nur wenn die Reihenfolge von Adjektiv und Nomen in diesen vier Satzteilen identisch sind, wurde die Reihenfolge von Adjektiv und Nomen in Nominalphrase der Sprache bestimmt. 
 
 ```{r}
 table(Daten$Adjektiv.Nomen)
 ```
 
+Mit Funktion "table()" sehen wir, dass insgesamt 17 Sprachen eine Reihenfolge "Adjektiv vor dem Nomen" in Nominalphrase haben, und 7 Sprachen eine Reihenfolgen "Nomen vor dem Adjektiv" in Nominalphrase haben. Außerdem gibt es zwei Sprachen, nämlich Französisch und Indonesisch, keine dominante Reihenfolge von Adjektiv und Nomen in Nominalphrase.  
 
 #### Karte 4: Die Reihenfolge von Adjektiv und Nomen in Nominalphrase
 
@@ -261,18 +266,38 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-Alle berücksichtige Nominalphrase: 
+Auf der Karte 4 "Die Reihenfolge von Adjektiv und Nomen in Nominalphrase" werden die 17 Sprachen mit der Reihenfolge "Adjektiv vor Nomen" in roten Pünktchen markiert und 7 Sprachen mit der Reihenfolge "Nomen vor Adjektiv" in blauen Pünktchen markiert. Mit grünen Pünktchen sind die Französischen und Indonesischen markiert. 
 
+In Französisch sind die Reihenfolge von Adjektiv und Nomen in Nominalphrase nicht immer gleich, wie zum Beispiel:
+- Artikel + Adjektiv + Nomen (als Subjekt)
+-    les     petits    chiens
+-   die     kleinen   Hunde
 
+- Artikel + Nomen + Adjektiv (als Subjekt)
+-   le      bois    humide
+-   das     Holz   feuchte
+
+In Indonesischen wechselt sich die Reihenfolge von Adjektiv und Nomen in Nominalphrase auch immer wieder, beispielsweise:
+- Nomen + Adjektiv + Artikel
+-  rumah    besar     ini
+-  Häuser    groß     das
+
+- Adjektiv + Nomen
+-  kecil    anjing
+-  klein     Hund
+
+Dadurch dass die Reihenfolge von Adjektiv und Nomen in Nominalphrase für Französischen und Indonesischen beides möglich ist, wurden den Typ dieser Reihenfolge hier als "Beides" auf der Karte gestellt. 
 
 
 ### 3.2.2 Die Reihenfolge von Artikel und Nomen in Nominalphrase
+
+Die Wortstellung in Nominalphrasen "diese fünf großen Häuser" und "das feuchte Holz" wurden für die Festlegung der Reihenfolge von Artikel und Nomen in Nominalphrase angeschaut. Nur wenn die Reihenfolge von diesen zwei Nominalphrasen identisch sind, kann man ihre Reihenfolge festlegen. 
 
 ```{r}
 table(Daten$Artikel.Nomen)
 ```
 
-
+Durch die Funktion "table()" sieht man, dass insgesamt 23 Sprachen eine Reihenfolge "Artikel vor Nomen" hat und nur in zwei Sprachen "Nomen vor Artikel" ist. In dem Übersetzungsbogen von Persisch gab es leider keinen Artikel, daher wurde diese Reihenfolge für Persischen als "nicht klar" dargestellt. 
 
 #### Karte 5: Die Reihenfolge von Artikel und Nomen in Nominalphrase
 
@@ -304,26 +329,28 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-Alle berücksichtige Nominalphrase:
+Mit Karte 5 sehen wir, dass die dominante Reihenfolge von Artikel und Nomen der erhobenen Sprachen "Artikel vor Nomen" ist. Jedoch gibt es noch zwei Sprachen: Vietnamesisch und Indonesisch, in denen die dominante Reihenfolge "Nomen vor Artikel" ist. Wie in Nominalphrase "diese fünf großen Häuser":
 
+- In Vietnamesisch: 
+- Numerale + Nomen + Adjektiv + Artikel
+-    năm     ngôi    nhà lớn     này          
+-    fünf   Häuser   großen      dies
 
-
-???
-NA zeigt hier in der Karte nicht... Persisch
-???
-
-Warum nicht klar? nicht eingegeben? nicht vorkommen? etc.
-
-
+- In Indonesischen: 
+- Numerale + Nomen + Adjektiv + Artikel
+-  lima     rumah     besar     ini               
+-  fünf     Häuser    groß      das
 
 
 ### 3.2.3 Die Reihenfolge von Farbe und Nomen in Nominalphrase "roter Ball"
+
+Die Reihenfolge von Farbe und Nomen wurde nur mit "rot + Ball" in der Nominalphrase "einen schönen großen roten Ball" berücksichtigt. 
 
 ```{r}
 table(Daten$Farbe.Nomen)
 ```
 
-
+Trotzdem ergibt sich eine klare Unterschieden von diesen Sprachen, es gibt insgesamt 18 Sprachen mit der Reihenfolge "Farbe + Nomen" und 8 Sprachen "Nomen + Farbe". 
 
 #### Karte 6: Die Reihenfolge von Farbe und Nomen in Nominalphrase: roter Ball
 
@@ -355,21 +382,16 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
-
-
-
+Auf der Karte 6 "Die Reihenfolge von Farbe und Nomen in Nominalphrase: roter Ball" sind die 18 Sprachen für "Farbe vor Nomen" mit roten Pünktchen markiert und blauen Pünktchen für die "Nomen vor Farbe" Sprachen.  
 
 
 ### 3.2.4 Die Reihenfolge von Numeralen und Nomen in Nominalphrase "fünf Häuser"
 
+Für die Reihenfolge von Numerale und Nomen in Nominalphrase wurde nur durch die Wortstellung in "diese fünf großen Häuser" festgelegt. Hier gibt es keine Ausnahme, alle erhobene 26 Sprachen haben die Reihenfolge "Numerale vor Nomen".
 
 ```{r}
 table(Daten$Numeral.Nomen)
 ```
-
 
 #### Karte 7: Die Reihenfolge von Numerale und Nomen in Nominalphrase: fünf Häuser
 
@@ -402,21 +424,20 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-In allen erhobenen Sprachen sind Numeral vor Nomen in Nominalphrase "fünf Häuser", hier gibt es keine Ausnahme.
+In allen erhobenen Sprachen sind Numerale vor Nomen in Nominalphrase "fünf Häuser", hier gibt es keine Ausnahme und sind auf der Karte 7 mit blauen Pünktchen markiert.
 
 
+### 3.2.5 Die Reihenfolge von Genitiv und Nomen in Nominalphrase "Musik von Mozart"
 
-
-
-### 3.2.5 Die Wortfolge von Genitiv und Nomen in Nominalphrase "Musik von Mozart"
+Durch die Nominalphrase "Musik von Mozart" kann man die Wortfolge von Genitiv und Nomen in Nominalphrase von den erhobenen Sprachen festlegen. 
 
 ```{r}
 table(Daten$Musik.Mozart)
 ```
 
+Es ergibt sich drei Möglichkeiten: 15 Sprachen mit "Nomen vor Genitiv", 9 Sprachen mit "Genitiv vor Nomen" und zwei Sprachen mit "nicht klar". Diese zwei Sprachen sind Georgisch und Persisch. In diesen beiden Sprachen wurden diese Nominalphrase nur mit einem Wort übersetzt. In Georgischen ist "mocarts" und in Persischen ist "Mozart". Daher wurde ihre Reihenfolge hier als "nicht klar" gezeichnet.
 
-
-#### Karte 8: Die Wortfolge von Genitiv und Nomen in Nominalphrase: Musik von Mozart
+#### Karte 8: Die Reihenfolge von Genitiv und Nomen in Nominalphrase: Musik von Mozart
 
 ```{r}
 maps::map("world"
@@ -436,7 +457,7 @@ points (Daten$Longitude, Daten$Latitude
        , pch = MuMo
        , col = mycols5)
 
-title(main = "Die Wortfolge von Genitiv und Nomen
+title(main = "Die Reihenfolge von Genitiv und Nomen
 in Nominalphrase: Musik von Mozart")
 
 legend ("bottomleft"
@@ -447,21 +468,22 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
-
+Auf der Karte 8 "Die Reihenfolge von Genitiv und Nomen in Nominalphrase: Musik von Mozart" sind "Genitiv vor Nomen" Sprachen mit roten Pünktchen markiert und blauen Pünktchen für die "Nomen vor Genitiv" Sprachen und grünen Pünktchen für "nicht klar" Sprache.  
 
 
 ##3.3 Die Reihenfolge von verschiedenen Arten der Adjektive in Nominalphrase
 
-
+Durch die Vergleiche von Wortstellungen in Nominalphrasen ist es mir aufgefallen, dass viele Reihenfolgen von verschiedenen Arten der Adjektive in Nominalphrasen auch sehr vielfältig sind. Hiermit werden diese Unterschieden der Reihenfolgen von Adjektiven dargestellt. 
 
 ### 3.3.1 Die Reihenfolge von Artikel und Farbe in Nominalphrase "einen roten Ball"
+
+
 
 ```{r}
 table(Daten$Artikel.Farbe)
 ```
+
+
 
 #### Karte 9: Die Reihenfolge von Artikel und Farbe in Nominalphrase: einen roten Ball
 
@@ -639,9 +661,13 @@ legend ("bottomleft"
 
 ### 3.3.5 Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase "schönen großen Ball"
 
+
+
 ```{r}
 table(Daten$Adjektiv.Adjektiv.Umfang)
 ```
+
+
 
 #### Karte 13: Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase: schönen großen Ball
 
@@ -912,9 +938,19 @@ Hunan   person  fear not spicy
 
 #Literatur- und Quellenverzeichnis
 
-- Koordinate für die erhobenen Sprachen: http://wals.info/languoid (aufgerufen am 22.02.2018)
 - Croft W. Typology and universals[M]. Cambridge University Press, 2002.
-- M. Haspelmath: Sprachen der Welt. Max-Planck-Institut für evolutionäre Anthropologie (1999-2005) http://home.uni-leipzig.de/muellerg/su/haspelmath.pdf (aufgerufen am 14.03.2018)
+- Haspelmath M.: Sprachen der Welt. Max-Planck-Institut für evolutionäre Anthropologie (1999-2005) http://home.uni-leipzig.de/muellerg/su/haspelmath.pdf (aufgerufen am 14.03.2018)
+- Haarmann H. Elementare Wortordnung in den Sprachen der Welt: Dokumentation und Analysen zur Entstehung von Wortfolgemustern[M]. Buske Verlag, 2004.
+- Jiang W. Acquisition of word order in Chinese as a foreign language[M]. Walter de Gruyter, 2009.
+- Kahl T, Metzeltin M. Sprachtypologie: ein Methoden-und Arbeitsbuch für Balkanologen, Romanisten und allgemeine Sprachwissenschaftler[M]. Harrassowitz Verlag, 2015.
+- Kotowski S. Adjectival Modification and Order Restrictions: The Influence of Temporariness on Prenominal Word Order[M]. Walter de Gruyter GmbH & Co KG, 2016.
+- Kwon H J. Eine kontrastive Beschreibung des Serbokroatischen und des Koreanischen: unter besonderer Berücksichtigung der Wortfolge[D]., 1996.
+- Szwedek A J. The thematic structure of the sentence in English and Polish: Sentence stress and word order[M]. Peter Lang, 2011.
+- Wortstellung im Sprachvergleich: (deutsch-niederländisch-polnisch-ungarisch) [M]. Julius Groos, 2001.
+
+
+- Koordinate für die erhobenen Sprachen: http://wals.info/languoid (aufgerufen am 22.02.2018)
+- Nachschlagen von R: https://rseek.org 
 
 
 
