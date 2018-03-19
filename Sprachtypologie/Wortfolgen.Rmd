@@ -17,22 +17,26 @@ output:
 
 Insgesamt gibt es ca. 6500 bis 7000 Sprachen auf der Welt. Etwa die Hälfte der Erdbevölkerung sprechen eine der 10 meistgesprochenen Sprachen. Die sind Mandarin-Chinesisch, Englisch, Spanisch, Hindi, Arabisch, Portugiesisch, Bengali, Russisch, Japanisch und Deutsch. 
 
-Verschiedene Sprachen haben verschiedene Wortstellungsmöglichkeiten, zum Beispiel ist die Wortfolge auf Deutsch Subjekt-Verb-Objekt, wie im Satz "Ich koche Suppe.", aber auf Japanisch ist die Wortfolge Subjekt-Objekt-Verb, wie im Satz:
+Verschiedene Sprachen haben verschiedene Wortstellungsmöglichkeiten, zum Beispiel ist die Wortfolge auf Deutsch Subjekt-Verb-Objekt, wie im Satz "Ich koche Suppe.", auf Japanisch ist die Wortfolge von diesem Satz jedoch Subjekt-Objekt-Verb:
+
 Watashi wa su-pu  wo  tsukuru 
 Ich        Suppe       kochen
 
-Verschiedene Sprachen haben auch verschiedene Wortstellungsmöglichkeiten in Nominalphrasen, zum Beispiel die Wortstellung von Adjektiven und Nomen in Nominalphrasen. In Deutschen ist es Adjektiv-Nomen, wie "das feuchte Holz", aber in Französischen ist es Nomen-Adjektiv:
+Verschiedene Sprachen haben verschiedene Wortstellungsmöglichkeiten in Nominalphrasen, zum Beispiel die Wortstellung von Adjektiven und Nomen in Nominalphrasen. In Deutschen ist das Adjektiv vor dem Nomen, wie in der Nominalphrase "das feuchte Holz", aber in Französischen kann das Nomen vor dem Adjektiv gestellt wird:
+
 le    bois   humide
 das   Holz   feuchte
 
 Jedoch kann man nicht sagen, dass die Sprachen auf der Welt keine Gemeinsamkeiten haben. Denn alle Sprachen haben Wörter und Sätze, Wörter werden aus elementaren bedeutungslosen Lauten oder Gesten gebildet, alle Sprachen haben komplexe morphologische und/oder syntaktische Strukturen, alle Sprachen haben Frageausdrücke und Verneinungsausdrücke usw. 
 
-Es lassen sich oft universale Behauptungen nur aufstellen, wenn eine weitere Bedingung erfüllt ist: Implikationsuniversalien (vgl. W. Croft 2009).
+Es lassen sich oft universale Behauptungen nur aufstellen, wenn eine weitere Bedingung erfüllt ist: Implikationsuniversalien (vgl.Croft 2002).
 "Wenn eine Sprache L die Eigenschaft A hat, dann hat sie auch die Eigenschaft B"
 
 Beispielsweise "Wenn eine Sprache ein [f] Laut hat, dann hat sie auch ein [s] Laut; Wenn in einer Sprache das Objekt dem Verb vorangeht "Der Hund die Katze jagt", dann steht auch der Besitzer vor dem Besitz "des Hundes Hütte".
 
-Nach dieser Theorie wird in dieser empirischen Arbeit den Zusammenhangen zwischen den Wortfolgen im Satz und den Wortstellungen in Nominalphrasen von den erhobenen 26 Sprachen anschauen, ob es nach dieser Theorie auch Ausnahme gibt oder die Zusammenhangen nach Statistik signifikant sind. Diese Arbeit wird mit Statistik "R" geschrieben und alle Daten werden in "R" eingelesen und ausgewertet. Außerdem werden Karten für die Übersichten von verschiedene Themen der erhobenen Sprachen dargestellt. 
+Nach dieser Theorie wird in dieser empirischen Arbeit den Zusammenhangen zwischen den Wortfolgen im Satz und den Wortstellungen in Nominalphrasen von den erhobenen 26 Sprachen untersucht, ob es nach dieser Theorie auch Ausnahme gibt und ob diese Zusammenhangen nach Statistik signifikant sind. 
+
+Diese Arbeit wird mit Statistik "R" geschrieben und alle Daten werden in "R" eingelesen und ausgewertet. Die Karten für die Übersichten von verschiedene Themen der erhobenen Sprachen werden mit "R" dargestellt. 
 
 
 #2. Eigene empirische Arbeit
@@ -143,6 +147,8 @@ Ich interessiere mich über den Zusammenhang zwischen den Wortfolgen und den Wor
 -	10. das feuchte Holz [DET + Adj + N]
 
 Mit Satz 1 möchte ich die Wortfolgen im Satz von der Sprache festzustellen. Leider gibt es viele Sprachen, wenn der Subjekt im Satz "ich" ist, fällt den Subjekt weg und wird mit der Endung von Verb markiert. Daher habe ich die Wortfolgen von der Sprache immer auf alle gefragte zehn Sätzen berücksichtigt. Mit Phrase "Musik von Mozart" wird die Genitiv-Nomen-Reihenfolge analysiert, damit wird die Reihenfolge für Genitiv-Nomen oder Nomen-Genitiv in der Sprache festgestellt. Mit Sätzen 4, 5, 9, 10 werden die Reihenfolgen von verschiedenen Elementen in der Nominalphrase der erhobenen Sprachen festgestellt. 
+
+Außerdem sind die Nominalphrasen von Sätzen 3, 4 und 5 als Direktobjekt im Satz, aber im Satz 9 und 10 sind die Nominalphrasen als Subjekt. Diese Ansicht wird auch bei der Analyse berücksichtigt. Außerdem sind die Nominalphrasen von Sätzen 3, 4 und 5 als Direktobjekt im Satz, aber im Satz 9 und 10 sind die Nominalphrasen als Subjekt. Durch die Analyse von den erhobenen Sprachen zeigt es keine Unterschieden von der Wortstellung in Nominalphrasen von diesen fünf Sätzen (sehen Sie Daten von "Umfrage Analyse.xlsx").
 
 ##2.3 Methode und Ablauf
 
@@ -880,6 +886,26 @@ Kritik:
 
 
 Jedoch gibt es uns eine gute Überblick von Sprachen der Welt, dass die Sprache sehr vielfältig sind und doch einen Zusammenhang mit einandern haben.
+
+
+Wenn man die Wortstellung mit diesen fünf Sätzen über diese erhobenen 26 Sprachen diskutieren, bekommt man eigentlich nicht alle Wortstellungsmöglichkeiten von diesen Sprachen. Eine Ausnahme ist zum Beispiel Chinesisch, die Wortstellung im Chinesischen kann sowohl "Subjekt-Verb-Objekt (SVO)" sein, als auch "Subjekt-Objekt-Verb (SOV)" sein. Die Wortfolge im chinesischen Satz kann die Bedeutung von Satz stark ändern, wie in folgenden Sätzen nach Jiang (2009):
+
+1) Subjekt + Negation + Verb + Objekt
+Sichuan  ren    bu   pa   la
+Sichuan  person not fear spicy
+"Sichuaners do not (fear their food) being spicy."
+
+2) Subjekt + Objekt + Negation + Verb
+Hubei   ren   la   bu   pa
+Hubei  person spicy not fear
+"(Their food) being spicy is not fearful matter to Hubeiners."
+
+3) Subjekt + Verb + Negation + Objekt
+Hunan    ren    pa   bu   la
+Hunan   person  fear not spicy
+"Hunaners fear that (their food) is not spicy."
+
+
 
 
 
