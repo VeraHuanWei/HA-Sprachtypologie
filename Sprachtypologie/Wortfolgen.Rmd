@@ -3,11 +3,11 @@ title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphr
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
+  html_notebook:
+    toc: yes
   html_document:
     toc: yes
     toc_float: yes
-  html_notebook:
-    toc: yes
   pdf_document:
     toc: yes
 ---
@@ -607,12 +607,11 @@ Wenn wir nach der Analyse von der Reihenfolge von Artikel und Nomen wieder zurü
 
 ### 3.3.4 Die Reihenfolge von Farbe und Adjektiv in Nominalphrase "schönen roten Ball"
 
-
+Die Analyse von der Reihenfolge von dem Adjektiv Farbe "rot" und Adjektiv "schön" in Nominalphrase "schönen roten Ball" zeigt uns, dass in 20 Sprachen das Adjektiv vor Farbe steht und in sechs Sprachen genau andersrum ist. 
 
 ```{r}
 table(Daten$Farbe.Adjektiv)
 ```
-
 
 
 #### Karte 12: Die Reihenfolge von Adjektiv und Farbe in Nominalphrase: schönen roten Ball
@@ -646,20 +645,18 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
+Das Ergebnis der Analyse ist auf der Karte 12 "Die Reihenfolge von Adjektiv und Farbe in Nominalphrase: schönen roten Ball" präsentiert. Blauen Pünktchen markieren die "Adjektiv vor Farbe" Sprachen und roten Pünktchen markieren die "Farbe vor Adjektiv" Sprachen. 
 
 
 ### 3.3.5 Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase "schönen großen Ball"
 
-
+Um einen hierarchischen Zusammenhang zwischen allen Elementen in Nominalphrase zu finden, wurde die Reihenfolge von Adjektiv "schön" und Umfangsadjektiv "groß" auch analysiert. 
 
 ```{r}
 table(Daten$Adjektiv.Adjektiv.Umfang)
 ```
 
-
+In 16 Sprachen ist "schön" vor "groß" in Nominalphrase "einen schönen großen roten Ball", aber in 8 Sprachen ist "groß" vor "schön". Leider in Hindi und Persisch ist diese Reihenfolge nicht klar, die Informantin für Hindi hatte das Adjektiv "groß" vergessen zu übersetzen und die Informantin für Persisch hatte das Adjektiv "schön" vergessen zu übersetzen.  
 
 #### Karte 13: Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase: schönen großen Ball
 
@@ -692,20 +689,11 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
+Die Karte 13 "Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase: schönen großen Ball" präsentiert das Ergebnis der Analyse von der Reihenfolge "schön + groß" in Nominalphrase "einen schönen großen roten Ball". 
 
 
 ## 3.4 Zusammenfassung 
 
-```{r}
-
-```
-
-
-
-
-
-
 
 
 ```{r}
@@ -713,6 +701,19 @@ legend ("bottomleft"
 ```
 
 
+
+
+
+
+
+
+```{r}
+
+```
+
+
+
+Die Analyse 
 
 
 
