@@ -477,13 +477,13 @@ Durch die Vergleiche von Wortstellungen in Nominalphrasen ist es mir aufgefallen
 
 ### 3.3.1 Die Reihenfolge von Artikel und Farbe in Nominalphrase "einen roten Ball"
 
-
+Die Reihenfolge von Artikel und Farbe wurde von Nominalphrase "einen schönen großen roten Ball" bestimmt, hier wird die Wortstellung von "ein" und "rot" genau angeschaut. Es ergibt sich drei Möglichkeiten, "Artikel vor Farbe", "Farbe vor Artikel" und "nicht klar". 
 
 ```{r}
 table(Daten$Artikel.Farbe)
 ```
 
-
+In meisten erhobenen Sprachen ist der Artikel vor Adjektiv Farbe, nur in einer Sprache Georgisch ist das Adjektiv Farbe vor dem Artikel. Außerdem ist diese Reihenfolge von sieben Sprachen nicht klar, denn ein paar Informanten hatten in diesem Satz keinen Artikel geschrieben. 
 
 #### Karte 9: Die Reihenfolge von Artikel und Farbe in Nominalphrase: einen roten Ball
 
@@ -516,20 +516,18 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-??? Warum so vile "nicht klar"
-
-
+Auf der Karte 9 "Die Reihenfolge von Artikel und Farbe in Nominalphrase: einen roten Ball" sind "Artikel vor Farbe" Sprachen mit blauen Pünktchen markiert und roten Pünktchen für die "Farbe vor Artikel" Sprache Georgisch und grünen Pünktchen für alle "nicht klar" Sprache.  
 
 
 ### 3.3.2 Die Reihenfolge von Artikel und Numerale in Nominalphrase "diese fünf Häuser"
 
+Die Reihenfolge von Artikel und Numerale wurde in Nominalphrase "diese fünf großen Häuser" genau angeschaut. Durch die Analyse in 3.2.4 ergibt sich, dass in allen erhobenen Sprachen Numerale vor Nomen steht. Die Analyse von 3.2.2 zeigt uns, dass in 23 Sprachen Artikel vor Nomen steht und in 2 Sprachen Nomen vor Artikel steht. 
 
 ```{r}
 table(Daten$Artikel.Numeral)
 ```
 
+Die Analyse hier zeigt uns, dass in insgesamt 21 Sprachen der Artikel vor dem Numerale steht, aber in vier Sprachen steht das Numerale vor dem Artikel. Bei Persischen ist diese Reihenfolge nicht klar, da die Information fehlt.
 
 #### Karte 10: Die Reihenfolge von Artikel und Numerale in Nominalphrase: diese fünf Häuser
 
@@ -562,21 +560,16 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
-
-
-
-
+Wie auf anderen Karte ist es auf Karte 10 "Die Reihenfolge von Artikel und Numerale in Nominalphrase: diese fünf Häuser" auch mit farbigen Pünktchen die Sprachen markiert und dazu gehörige Zahl in Klammer angegeben. 
 
 
 ### 3.3.3 Die Reihenfolge von Artikel und Adjektiv in Nominalphrase "das feuchte Holz"
 
+In Nominalphrase "das feuchte Holz" gab es insgesamt 22 Sprachen, in denen der Artikel vor dem Adjektiv steht. In Vietnamesischen und Indonesischen seht das Adjektiv aber vor dem Artikel. Wie diese Reihenfolge in Berber und Persischen ist, ist es unklar. 
+
 ```{r}
 table(Daten$Artikel.Adjektiv)
 ```
-
 
 #### Karte 11: Die Reihenfolge von Artikel und Adjektiv in Nominalphrase: das feuchte Holz
 
@@ -609,19 +602,18 @@ legend ("bottomleft"
         , pt.cex = 1.5)
 ```
 
-
-
-
-
-
-
+Wenn wir nach der Analyse von der Reihenfolge von Artikel und Nomen wieder zurückblicken, steht Nomen vor dem Artikel in Vietnamesischen und Indonesischen. Das zeigt, dass die Wortstellungen von Elementen in den Sprachen doch stark mit einander verbunden sind. 
 
 
 ### 3.3.4 Die Reihenfolge von Farbe und Adjektiv in Nominalphrase "schönen roten Ball"
 
+
+
 ```{r}
 table(Daten$Farbe.Adjektiv)
 ```
+
+
 
 #### Karte 12: Die Reihenfolge von Adjektiv und Farbe in Nominalphrase: schönen roten Ball
 
@@ -702,6 +694,8 @@ legend ("bottomleft"
 
 
 
+
+## 3.4 Zusammenfassung 
 
 ```{r}
 
@@ -814,9 +808,13 @@ mosaicplot (Folge2
 chisq.test(Folge2)
 ```
 
+
+
 ```{r}
 t.test(Folge2)
 ```
+
+
 
 ```{r}
 cor.test(Folge2, Folge2)
@@ -896,7 +894,8 @@ t.test(Folge4)
 
 
 
-Kritik
+## 5.1 Kritiken
+
 In vielen Sprachen sind die Bedeutung von jedem Wort nicht klar markiert oder geschrieben, wie Persisch, Koreanisch. Man kann nur mit Wörterbuch und Google Übersetzer die Bedeutung vom einzelnen Wort raussuchen, aber meistens ist man unsicher.  Daher kann man nur die Art von Wort feststellen, nicht die genaue Bedeutung und Feinheit. 
 
 
@@ -930,6 +929,11 @@ Hubei  person spicy not fear
 Hunan    ren    pa   bu   la
 Hunan   person  fear not spicy
 "Hunaners fear that (their food) is not spicy."
+
+
+## 5.2 Ausblicken
+
+
 
 
 
