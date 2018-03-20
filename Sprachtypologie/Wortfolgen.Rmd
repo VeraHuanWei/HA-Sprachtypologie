@@ -694,54 +694,31 @@ Die Karte 13 "Die Reihenfolge von Adjektiv und Umfangsadjektiv in Nominalphrase:
 
 ## 3.4 Zusammenfassung 
 
+Nach Payne & Huddleston (2002: 453) ist die Hierarchie von modifizierenden Adjektiven in Englisch:
+- Evaluative > General Property > Age > Color > Provenance > Manufacture > Type
 
+Gibt es bei jeder Sprache eine Hierarchie für die Wortstellung in Nominalphrase? Wie stark ist den Zusammenhang? Diese Fragen kann man leider nicht nur mit diesen Daten von den Umfragen antworten. Jedoch gibt es ein paar Anmerkungen, die wichtig sind. Fast bei jeder Analyse gibt es verschiedene Verteilungen, außer bei der Reihenfolge von "Numerale und Nomen", da hatten alle Informanten Numerale vor Nomen übersetzt.  
 
-```{r}
-
-```
-
-
-
-
-
-
-
-
-```{r}
-
-```
-
-
-
-Die Analyse 
-
-
-
+Die Analysen von einzelner Reihenfolge in Nominalphrase zeigt uns, dass diese Reihenfolge jedoch miteinander verbunden ist. Wie diese Zusammenhangen zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen sind, werden weiterhin statistisch analysiert.   
 
 
 #4. Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der erhobenen Sprachen
 
+Nach Greenberg (1966) sind dominant Order und Harmonie-Beziehungen für Erklärung von Universalien am Wichtigsten. Mit Greenberg's Generalisierung erklärtet man "cross-linguistic-variation", das Konzept von "competing motivations". 
 
-**Vermutungen**
-
-```{r}
-
-```
-
+Im Folgenden werden die Zusammenhangen zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der erhobenen Sprachen mit Greenberg's Methoden dargestellt. 
 
 
 ##4.1 Zusammenhang zwischen den Wortfolgen und die Wortstellung des Adjektivs und Nomen
 
-
+Nach vorheriger Analyse wissen wir, dass es insgesamt 20 Sprachen eine SVO-Wortfolge haben und 6 Sprachen eine SOV-Wortfolge haben. Außerdem ist das Adjektiv vor dem Nomen in 17 Sprachen, in 7 Sprachen das Nomen vor dem Adjektiv und in 2 Sprachen gilt beides. Aber wie diese Verteilungen mit einander verbinden sind, wird hier mit einander verglichen. 
 
 ```{r}
 Folge1 <- table(Daten$Wortfolge, Daten$Adjektiv.Nomen)
 Folge1
 ```
 
-
-
-
+Durch die Funktion "table()" bekommen wir eine Table von dem Zusammenhang zwischen den Wortfolgen und Wortstellung des Adjektivs und Nomen. Die dominante Order ist hier "SVO-Wortfolgen + Adjektiv vor Nomen".  
 
 ```{r}
 barplot (Folge1
@@ -749,12 +726,13 @@ barplot (Folge1
 die Wortstellung des Adjektivs und Nomen"
          )
 ```
+
 Der Unterschied zwischen den Sprachen kann man auch mit einem Boxplot darstellen, aber das hilft nicht so viel, weil jeder Vokal anders ist. 
 
 
 ```{r}
 mosaicplot(Folge1
-           , color = TRUE
+           , color = rainbow(3)
            , xlab = "Wortfolge"
            , ylab = "Wortstllung der Adjektiv und Nomen"
            , main = "Zusammenhang zwischen den Wortfolgen und 
@@ -762,9 +740,13 @@ den Wortstellungen der Adjektiven und Nomen")
 ```
 
 
+
+
 ```{r}
 chisq.test(Folge1)
 ```
+
+
 
 
 
@@ -797,7 +779,7 @@ Folge2
 
 ```{r}
 mosaicplot (Folge2
-            , color = TRUE
+            , color = rainbow(3)
         , xlab = "Wortfolgen"
         , ylab = "Wortstellung von Artikel und Nomen"
         , main = "Zusammenhang zwischen den Wortfolgen und
@@ -835,7 +817,7 @@ Folge3
 
 ```{r}
 mosaicplot (Folge3
-        , color = TRUE
+        , color = rainbow(2)
         , xlab = "Wortfolgen"
         , ylab = "Wortstellung von Farbe und Nomen"
         , main = "Zusammenhang zwischen den Wortfolgen und
@@ -944,21 +926,18 @@ Hunan   person  fear not spicy
 #Literatur- und Quellenverzeichnis
 
 - Croft W. Typology and universals[M]. Cambridge University Press, 2002.
+- Greenberg J H. Synchronic and diachronic universals in phonology[J]. Language, 1966, 42(2): 508-517.
+- Greenberg Joseph H. Language universals, with special reference to feature hierarchies[J]. The Hague, Mouton, 1966.
 - Haspelmath M.: Sprachen der Welt. Max-Planck-Institut für evolutionäre Anthropologie (1999-2005) http://home.uni-leipzig.de/muellerg/su/haspelmath.pdf (aufgerufen am 14.03.2018)
 - Haarmann H. Elementare Wortordnung in den Sprachen der Welt: Dokumentation und Analysen zur Entstehung von Wortfolgemustern[M]. Buske Verlag, 2004.
 - Jiang W. Acquisition of word order in Chinese as a foreign language[M]. Walter de Gruyter, 2009.
 - Kahl T, Metzeltin M. Sprachtypologie: ein Methoden-und Arbeitsbuch für Balkanologen, Romanisten und allgemeine Sprachwissenschaftler[M]. Harrassowitz Verlag, 2015.
 - Kotowski S. Adjectival Modification and Order Restrictions: The Influence of Temporariness on Prenominal Word Order[M]. Walter de Gruyter GmbH & Co KG, 2016.
 - Kwon H J. Eine kontrastive Beschreibung des Serbokroatischen und des Koreanischen: unter besonderer Berücksichtigung der Wortfolge[D]., 1996.
+- Payne J, Huddleston R D. Nouns and noun phrases[J]. 2002.
 - Szwedek A J. The thematic structure of the sentence in English and Polish: Sentence stress and word order[M]. Peter Lang, 2011.
 - Wortstellung im Sprachvergleich: (deutsch-niederländisch-polnisch-ungarisch) [M]. Julius Groos, 2001.
 
-
 - Koordinate für die erhobenen Sprachen: http://wals.info/languoid (aufgerufen am 22.02.2018)
 - Nachschlagen von R: https://rseek.org 
-
-
-
-
-
 
