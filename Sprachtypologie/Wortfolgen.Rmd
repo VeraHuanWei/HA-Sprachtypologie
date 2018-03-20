@@ -727,7 +727,7 @@ die Wortstellung des Adjektivs und Nomen"
          )
 ```
 
-Der Unterschied zwischen den Sprachen kann man auch mit einem Boxplot darstellen, aber das hilft nicht so viel, weil jeder Vokal anders ist. 
+Die Funktion "barplot()" zeigt uns eine visuelle Darstellung über die Verteilung. Hiermit sehen wir, dass die Wortstellung "Adjektiv vor Nomen" die verbreiterte Order ist.  
 
 
 ```{r}
@@ -739,7 +739,7 @@ mosaicplot(Folge1
 den Wortstellungen der Adjektiven und Nomen")
 ```
 
-
+Die visuelle Darstellung mit der Funktion "mosaicplot()" zeigt eine klare Verteilung. Alle rote Fläche sind für die Wortstellung "Adjektiv vor Nomen", alle grüne Fläche sind für die Wortstellung "Nomen vor Adjektiv" und blaue Fläche sind für die "beides". Außerdem sehen wir Linkseite die SOV Sprachen sind und Reicht Seite die SVO Sprachen sind. 
 
 
 ```{r}
@@ -755,27 +755,24 @@ t.test(Folge1)
 ```
 
 
-??? 
+
 ```{r}
 cor.test(Folge1, Folge1)
 ```
 
 
+Diese statistische Analyse zeigt uns, dass… 
 
 
 ##4.2 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Artikel und Nomen 
-
-
+Unsere vorherige Analyse zeigt uns, dass es in insgesamt 23 Sprachen das Artikel vor dem Nomen steht und nur in zwei Sprachen das Nomen vor dem Artikel ist. Hiermit wird der Zusammenhang zwischen den Wortfolgen und den Artikel-Nomen Wortstellungen gerechnet. 
 
 ```{r}
 Folge2 <- table(Daten$Wortfolge, Daten$Artikel.Nomen)
 Folge2
 ```
 
-
-
-
-
+Die Tabelle zeigt, dass die Order "SVO-Wortfolgen + Artikel vor Nomen" die dominante Order ist. 
 
 ```{r}
 mosaicplot (Folge2
@@ -785,6 +782,8 @@ mosaicplot (Folge2
         , main = "Zusammenhang zwischen den Wortfolgen und
         den Wortstellungen der Artikel und Nomen ")
 ```
+
+Mit dem Bild sieht man die Untersieden, dass rote Fläche die "Artikel vor dem Nomen" sind, blaue Fläche diese nicht klar Sprache ist, und grüne Fläche die "Nomen vor Artikel" Sprache sind. 
 
 
 ```{r}
@@ -803,17 +802,19 @@ t.test(Folge2)
 cor.test(Folge2, Folge2)
 ```
 
+Diese statistische Analyse zeigt uns, dass… 
+
+
 
 
 ##4.3 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Farbe und Nomen 
 
-
+Die Tabelle von den Wortfolgen und den Wortstellungen der Farbe und Nomen zeigt uns, dass die dominante Order "SVO-Wortfolgen + Farbe vor Nomen" ist. 
 
 ```{r}
 Folge3 <- table(Daten$Wortfolge, Daten$Farbe.Nomen)
 Folge3
 ```
-
 
 ```{r}
 mosaicplot (Folge3
@@ -824,6 +825,7 @@ mosaicplot (Folge3
 den Wortstellungen der Farbe und Nomen ")
 ```
 
+Auf dem Bild sind alle roten Flächen die Sprachen, in denen Farbe vor Nomen sind, und blauen Flächen die Sprachen, in denen Nomen vor Farbe steht. 
 
 ```{r}
 chisq.test(Folge3)
@@ -835,7 +837,14 @@ t.test(Folge3)
 ```
 
 
+Diese statistische Analyse zeigt uns, dass… 
+
+
+
+
 ##4.4 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Numerale und Nomen 
+
+Die vorherige Analyse zeigt, dass das Numerale vor dem Nomen in allen erhobenen Sprachen steht. Daher hat die Tabelle von den Wortfolgen und Wortstellung von Numerale und Nomen nur zwei Verteilungen. 
 
 ```{r}
 Folge4 <- table(Daten$Wortfolge, Daten$Numeral.Nomen)
@@ -850,7 +859,6 @@ mosaicplot (Folge4
 den Wortstellungen der Numerale und Nomen ")
 ```
 
-
 ```{r}
 chisq.test(Folge4)
 ```
@@ -861,6 +869,13 @@ t.test(Folge4)
 ```
 
 
+Diese statistische Analyse zeigt uns, dass… 
+
+
+
+
+
+## 4.5 Zusammenfassung
 
 
 ```{r}
@@ -875,51 +890,35 @@ t.test(Folge4)
 
 #5. Allgemeine Diskussion und Ausblick
 
-
-
 ## 5.1 Kritiken
 
-In vielen Sprachen sind die Bedeutung von jedem Wort nicht klar markiert oder geschrieben, wie Persisch, Koreanisch. Man kann nur mit Wörterbuch und Google Übersetzer die Bedeutung vom einzelnen Wort raussuchen, aber meistens ist man unsicher.  Daher kann man nur die Art von Wort feststellen, nicht die genaue Bedeutung und Feinheit. 
+In vielen Übersetzungsbogen ist die Bedeutung von jedem Wort nicht klar markiert oder sogar nichts geschrieben, wie Persisch, Koreanisch. Man kann nur mit Wörterbuch und Google Übersetzer die Bedeutung vom einzelnen Wort raussuchen, aber meistens wird dadurch unsicher.  Die Art vom Wort kann man zwar feststellen, aber nicht die genaue Bedeutung und ihre grammatische Feinheit. 
 
+Bei der Übersetzung vom Satz 1" Ich koche Suppe" wird das Subjekt in vielen Sprachen nicht eingegeben. Denn in manchen Sprachen wird das Subjekt "ich" mit der Endung von Verb markiert.
 
-Satz 1: Ich koche Suppe.
-In Vielen Sprachen wird der Subjekt nicht eingegeben, wenn es "ich" ist. "Ich" als Subjekt wird in der Endung von Verb makiert. 
-
-
-
-Kritik:
-1 Nur mit ein paar Sätzen von Übersetzungen kann man nicht alle Variationen von einer Sprache bekommen, sondern nur die passende Form von diesem Satz. Das bedeutet noch lange nicht, dass andere Form in dieser Sprache nicht gibt.
-
-2 Die im Text vergleichende Reihfolgen sind auch nicht unbedingt so ausgedrückt in der Sprache in allen Ausdrückssituationen. 
-
-
-Jedoch gibt es uns eine gute Überblick von Sprachen der Welt, dass die Sprache sehr vielfältig sind und doch einen Zusammenhang mit einandern haben.
-
-
-Wenn man die Wortstellung mit diesen fünf Sätzen über diese erhobenen 26 Sprachen diskutieren, bekommt man eigentlich nicht alle Wortstellungsmöglichkeiten von diesen Sprachen. Eine Ausnahme ist zum Beispiel Chinesisch, die Wortstellung im Chinesischen kann sowohl "Subjekt-Verb-Objekt (SVO)" sein, als auch "Subjekt-Objekt-Verb (SOV)" sein. Die Wortfolge im chinesischen Satz kann die Bedeutung von Satz stark ändern, wie in folgenden Sätzen nach Jiang (2009):
-
-1) Subjekt + Negation + Verb + Objekt
-Sichuan  ren    bu   pa   la
-Sichuan  person not fear spicy
-"Sichuaners do not (fear their food) being spicy."
-
-2) Subjekt + Objekt + Negation + Verb
-Hubei   ren   la   bu   pa
-Hubei  person spicy not fear
-"(Their food) being spicy is not fearful matter to Hubeiners."
-
-3) Subjekt + Verb + Negation + Objekt
-Hunan    ren    pa   bu   la
-Hunan   person  fear not spicy
-"Hunaners fear that (their food) is not spicy."
+Die Übersetzungsbogen sind auf Deutsch geschrieben. Beim Übersetzung von einer Sprache ins anderen Sprache kann die Wortstellung im Satz von der eingegebenen Sprache beeinflussen. Für weitere Forschung kann man vielleicht mit Transkriptionen von Tonaufnahmen oder von frei gesprochenen Gesprächen arbeiten. Allerdings kann man sagen, dass die Datenerhoben mit Übersetzungsbogen sehr effektiv ist. 
 
 
 ## 5.2 Ausblicken
 
+Wenn man die Wortstellung mit diesen fünf Sätzen über diese erhobenen 26 Sprachen diskutieren, bekommt man eigentlich nicht alle Wortstellungsmöglichkeiten von diesen Sprachen. Eine Ausnahme ist zum Beispiel Chinesisch, die Wortstellung im Chinesischen kann sowohl "Subjekt-Verb-Objekt (SVO)" sein, als auch "Subjekt-Objekt-Verb (SOV)" sein. Die Wortfolge im chinesischen Satz kann die Bedeutung von Satz stark ändern, wie in folgenden Sätzen nach Jiang (2009):
 
+-	1) Subjekt + Negation + Verb + Objekt
+-	Sichuan ren bu pa la
+-	Sichuan person not fear spicy
+-	"Sichuaners do not (fear their food) being spicy."
 
+-	2) Subjekt + Objekt + Negation + Verb
+-	Hubei ren la bu pa
+-	Hubei person spicy not fear
+-	"(Their food) being spicy is not fearful matter to Hubeiners."
 
+-	3) Subjekt + Verb + Negation + Objekt
+-	Hunan ren pa bu la
+-	Hunan person fear not spicy
+-	"Hunaners fear that (their food) is not spicy. "
 
+Die Beispiele nach Jiang (2009) zeigt, dass es in Chinesischen in Negation Satz verschiedene Wortfolgen geben kann. Für die weitere Forschung ist das Thema "Negation im Satz" sehr interessant, wie viele Möglichkeiten bei Negation in jeder Sprache gibt und wie die Zusammenhangen und Verteilungen von Sprachen der Welt sind. 
 
 
 
