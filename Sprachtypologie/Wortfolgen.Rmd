@@ -858,7 +858,6 @@ Grüne Fläche ist die dominante Order "Nomen vor Genitiv", rote Fläche ist die
 chisq.test(Folge5)
 ```
 
-
 Mit der statistische Analyse "chisq.test()" ist die P-Value 0.004832. Wenn die P-Value < 0.01 ist, bedeutet dieser Zusammenhang zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen von den erhobenen 26 Sprachen signifikant ist. Das Bild von der Funktion "mosaicplot()" zeigt uns diese Wortstellung stark mit Wortfolgen abhängig ist.
 
 
@@ -866,12 +865,6 @@ Mit der statistische Analyse "chisq.test()" ist die P-Value 0.004832. Wenn die P
 
 
 
-
-
-
-```{r}
-
-```
 
 
 
