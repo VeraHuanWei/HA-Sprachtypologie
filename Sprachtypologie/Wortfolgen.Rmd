@@ -787,8 +787,6 @@ Folge3 <- table(Daten$Wortfolge, Daten$Farbe.Nomen)
 Folge3
 ```
 
-Die Tabelle zeigt, dass die Order "SVO-Wortfolgen + Adjektiv-Farbe vor Nomen" die dominante Order ist. 
-
 ```{r}
 mosaicplot (Folge3
         , color = rainbow(2)
@@ -816,6 +814,7 @@ Folge4 <- table(Daten$Wortfolge, Daten$Numeral.Nomen)
 Folge4
 ```
 
+Die Order "SVO-Wortfolgen + Numerale vor Nomen" ist die dominante Order. 
 
 ```{r}
 mosaicplot (Folge4
@@ -829,17 +828,19 @@ den Wortstellungen der Numerale und Nomen ")
 chisq.test(Folge4)
 ```
 
-Diese statistische Analyse zeigt uns, dass… 
+Diese statistische Analyse "chisq.test()" zeigt uns, dass die P-Value für den Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Numerale und Nomen 0.00604 ist. Die P-Value < 0.01 bedeutet, dass dieser Zusammenhang von den erhobenen 26 Sprachen signifikant ist. 
 
 
 ##4.5 Zusammenhang zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen
 
+Die vorherige Analyse zeigt, dass der Genitiv in 9 Sprachen vor dem Nomen steht und in 15 Sprachen jedoch nach dem Nomen steht und in zwei Sprachen diese Reihenfolge nicht bekannt ist. Hiermit wird der Zusammenhang zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen gerechnet. 
 
 ```{r}
 Folge5 <- table(Daten$Wortfolge, Daten$Musik.Mozart)
 Folge5
 ```
 
+Die Tabelle zeigt, dass die Order "SVO-Wortfolgen + Nomen vor Genitiv" die dominante Order ist. 
 
 ```{r}
 mosaicplot(Folge5
@@ -850,14 +851,15 @@ mosaicplot(Folge5
 den Wortstellungen von Genitiv und Nomen")
 ```
 
+Grüne Fläche ist die dominante Order "Nomen vor Genitiv", rote Fläche ist die Order "Genitiv vor Nomen" und blaue Fläche sind die nicht klare Sprache für diese Wortstellung. Außerdem sieht man einen klaren Unterschied für diese Wortstellungen zwischen SOV-Sprachen und SVO-Sprachen. Für die SOV-Sprachen ist die "Genitiv vor Nomen" die dominante Order, jedoch ist die "Nomen vor Genitiv" die dominante Order für die SVO-Sprachen. 
+
+
 ```{r}
 chisq.test(Folge5)
 ```
 
 
-
-
-
+Mit der statistische Analyse "chisq.test()" ist die P-Value 0.004832. Wenn die P-Value < 0.01 ist, bedeutet dieser Zusammenhang zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen von den erhobenen 26 Sprachen signifikant ist. Das Bild von der Funktion "mosaicplot()" zeigt uns diese Wortstellung stark mit Wortfolgen abhängig ist.
 
 
 ## 4.6 Zusammenfassung
