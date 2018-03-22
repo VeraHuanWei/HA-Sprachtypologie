@@ -723,7 +723,7 @@ Durch die Funktion "table()" bekommen wir eine Table von dem Zusammenhang zwisch
 ```{r}
 barplot (Folge1
          , main = "Zusammenhang zwischen den Wortfolgen und
-die Wortstellung des Adjektivs und Nomen"
+die Wortstellung der Adjektive und Nomen"
          )
 ```
 
@@ -736,7 +736,7 @@ mosaicplot(Folge1
            , xlab = "Wortfolge"
            , ylab = "Wortstllung der Adjektiv und Nomen"
            , main = "Zusammenhang zwischen den Wortfolgen und 
-den Wortstellungen der Adjektiven und Nomen")
+den Wortstellungen der Adjektive und Nomen")
 ```
 
 Die visuelle Darstellung mit der Funktion "mosaicplot()" zeigt eine klare Verteilung. Alle rote Fläche sind für die Wortstellung "Adjektiv vor Nomen", alle grüne Fläche sind für die Wortstellung "Nomen vor Adjektiv" und blaue Fläche sind für die "beides". Außerdem sehen wir Linkseite die SOV Sprachen sind und Reicht Seite die SVO Sprachen sind. 
@@ -746,22 +746,7 @@ Die visuelle Darstellung mit der Funktion "mosaicplot()" zeigt eine klare Vertei
 chisq.test(Folge1)
 ```
 
-
-
-
-
-```{r}
-t.test(Folge1)
-```
-
-
-
-```{r}
-cor.test(Folge1, Folge1)
-```
-
-
-Diese statistische Analyse zeigt uns, dass… 
+Diese statistische Analyse "chisq.test()" zeigt uns, dass die P-Value vom Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Adjektiven und Nomen 0.5249 ist. Da diese P-Value > 0.05 ist, bedeutet der Zusammenhang zwischen Wortfolgen und Wortstellungen der Adjektive und Nomen von den erhobenen 26 Sprachen nicht signifikant ist.
 
 
 ##4.2 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Artikel und Nomen 
@@ -790,21 +775,7 @@ Mit dem Bild sieht man die Untersieden, dass rote Fläche die "Artikel vor dem N
 chisq.test(Folge2)
 ```
 
-
-
-```{r}
-t.test(Folge2)
-```
-
-
-
-```{r}
-cor.test(Folge2, Folge2)
-```
-
-Diese statistische Analyse zeigt uns, dass… 
-
-
+"Chisq.test()" zeigt, dass die P-Value vom Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Artikel und Nomen 0.1383 ist, nämlich P-Value > 0.05. Dies bedeutet, der Zusammenhang zwischen den Wortfolgen und Wortstellungen der Artikel und Nomen von den erhobenen 26 Sprachen nicht signifikant ist. 
 
 
 ##4.3 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Farbe und Nomen 
@@ -815,6 +786,8 @@ Die Tabelle von den Wortfolgen und den Wortstellungen der Farbe und Nomen zeigt 
 Folge3 <- table(Daten$Wortfolge, Daten$Farbe.Nomen)
 Folge3
 ```
+
+Die Tabelle zeigt, dass die Order "SVO-Wortfolgen + Adjektiv-Farbe vor Nomen" die dominante Order ist. 
 
 ```{r}
 mosaicplot (Folge3
@@ -831,15 +804,7 @@ Auf dem Bild sind alle roten Flächen die Sprachen, in denen Farbe vor Nomen sin
 chisq.test(Folge3)
 ```
 
-
-```{r}
-t.test(Folge3)
-```
-
-
-Diese statistische Analyse zeigt uns, dass… 
-
-
+Die P-Value von der statistischen Analyse "chisq.test()" ist 0.727. Das bedeutet, der Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Adjektiv-Farbe und Nomen von den erhobenen 26 Sprachen nicht signifikant ist, da p-Value > 0.05 ist.  
 
 
 ##4.4 Zusammenhang zwischen den Wortfolgen und den Wortstellungen der Numerale und Nomen 
@@ -850,6 +815,7 @@ Die vorherige Analyse zeigt, dass das Numerale vor dem Nomen in allen erhobenen 
 Folge4 <- table(Daten$Wortfolge, Daten$Numeral.Nomen)
 Folge4
 ```
+
 
 ```{r}
 mosaicplot (Folge4
@@ -863,19 +829,42 @@ den Wortstellungen der Numerale und Nomen ")
 chisq.test(Folge4)
 ```
 
-
-```{r}
-t.test(Folge4)
-```
-
-
 Diese statistische Analyse zeigt uns, dass… 
 
 
+##4.5 Zusammenhang zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen
+
+
+```{r}
+Folge5 <- table(Daten$Wortfolge, Daten$Musik.Mozart)
+Folge5
+```
+
+
+```{r}
+mosaicplot(Folge5
+           , color = rainbow(3)
+           , xlab = "Wortfolgen"
+           , ylab = "Wortstellung von Genitiv und Nomen"
+           , main = "Zusammenhang zwischen den Wortfolgen und 
+den Wortstellungen von Genitiv und Nomen")
+```
+
+```{r}
+chisq.test(Folge5)
+```
 
 
 
-## 4.5 Zusammenfassung
+
+
+
+
+## 4.6 Zusammenfassung
+
+
+
+
 
 
 ```{r}
