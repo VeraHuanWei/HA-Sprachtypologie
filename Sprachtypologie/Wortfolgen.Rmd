@@ -3,11 +3,11 @@ title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphr
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
-  html_notebook:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
+  html_notebook:
+    toc: yes
   pdf_document:
     toc: yes
 ---
@@ -704,12 +704,19 @@ Die Analysen von einzelner Reihenfolge in Nominalphrase zeigt uns, dass diese Re
 
 #4. Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der erhobenen Sprachen
 
-Nach Greenberg (1966) sind dominant Order und Harmonie-Beziehungen für Erklärung von Universalien am Wichtigsten. Mit Greenberg's Generalisierung erklärtet man "cross-linguistic-variation", das Konzept von "competing motivations". 
+Nach Greenberg (1966) sind dominant Order und Harmonie-Beziehungen für Erklärung von Universalien am Wichtigsten. Mit Greenberg's Generalisierung erklärtet man "cross-linguistic-variation", das Konzept von "competing motivations". Die zwei harmoniere Typen sind OV und VO nach der deklaratorischen Order und die inklusiven Wortstellungen sind in folgender Tabelle (Lehmann 1973; Vennemann 1973). Die Harmonie-Analyse wird alle Wordorder als universal behandelt, was aber nicht immer passt; Dominante spielt auch eine wichtige Rolle für die Wortorder Typologie (Croft 2002).       
 
-Im Folgenden werden die Zusammenhangen zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der erhobenen Sprachen mit Greenberg's Methoden dargestellt. 
+```{r}
+Tablle1 <- read.csv("/Users/verawei/Desktop/HA Sprachtypologie/sources/Word Order Types.csv"
+               , header = TRUE
+               , sep = ";")
+Tablle1
+```
+
+Im Folgenden werden die Zusammenhangen zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen der erhobenen Sprachen dargestellt. Die Schwerpunkte liegen an die Zusammenhangen zwischen Wortfolgen und Adjektiv, Artikel, Farbe, Numerale und Genitiv. 
 
 
-##4.1 Zusammenhang zwischen den Wortfolgen und die Wortstellung des Adjektivs und Nomen
+##4.1 Zusammenhang zwischen den Wortfolgen und die Wortstellung der Adjektive und Nomen
 
 Nach vorheriger Analyse wissen wir, dass es insgesamt 20 Sprachen eine SVO-Wortfolge haben und 6 Sprachen eine SOV-Wortfolge haben. Außerdem ist das Adjektiv vor dem Nomen in 17 Sprachen, in 7 Sprachen das Nomen vor dem Adjektiv und in 2 Sprachen gilt beides. Aber wie diese Verteilungen mit einander verbinden sind, wird hier mit einander verglichen. 
 
@@ -863,13 +870,9 @@ Mit der statistische Analyse "chisq.test()" ist die P-Value 0.004832. Wenn die P
 
 ## 4.6 Zusammenfassung
 
+Die statistische Analyse zeigten, dass strake Zusammenhangen zwischen den Wortfolgen und den Wortstellungen von Genitiv und Nomen sowie den Wortstellungen der Numerale und Nomen geben. Aber keine signifikante Zusammenhangen sind für die Wortfolgen und den Wortstellungen der Adjektive und Nomen, und den Wortstellungen der Artikel und Nomen, sowie den Wortstellungen der Adjektiv-Farbe und Nomen gezeigt. 
 
-
-
-
-
-
-
+Diese Ergebnisse spricht auch dafür, dass es harmonische Zusammenhangen zwischen den Wortfolgen und den Wortstellungen gibt, aber nicht für alle Wortorder oder alle Sprachen. Außerdem sind nur 26 Sprachen in dieser Analyse, wenn man andere Sprachen oder mehr Sprachen mit einander vergleichen, bekommt man vielleicht eine andere signifikante Zusammenhangen.   
 
 
 #5. Allgemeine Diskussion und Ausblick

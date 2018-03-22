@@ -1,0 +1,16 @@
+﻿The OV and VO word order types;;
+Clausal orders;OV;VO
+;SV;VS
+;VAux;AuxV
+;VAdv;AdvV
+;VSubr;SubrV
+;PurpV;VPurp
+;OcompV;VOcomp
+;SentQ;QSent
+Phrasal Orders;Post;Prep
+;GN;NG
+;RelN;NRel
+;AN;NA
+;DemN;NDem
+;NumN;NNum
+;AdvA;AAdv
