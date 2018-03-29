@@ -1,5 +1,5 @@
 ---
-title: Zusammenhang zwischen den Wortfolgen und den Wortstellungen in Nominalphrasen von Sprachen der Welt
+title: Zusammenhang zwischen Wortfolge und Wortstellung in den Nominalphrasen der Weltsprachen
 author: "Huan Wei, Master LinKoKo, Mart.-Nr. 2471884"
 date: "`r Sys.Date()`"
 output:
